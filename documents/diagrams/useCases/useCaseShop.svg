@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="138px" preserveAspectRatio="none" style="width:284px;height:138px;" version="1.1" viewBox="0 0 284 138" width="284px" zoomAndPan="magnify"><defs><filter height="300%" id="f519q20nfejel" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="179" x="56" y="16.708">Use Case Diagram 3</text><!--entity U--><ellipse cx="33" cy="55.25" fill="#FEFECE" filter="url(#f519q20nfejel)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M33,63.25 L33,90.25 M20,71.25 L46,71.25 M33,90.25 L20,105.25 M33,90.25 L46,105.25 " fill="none" filter="url(#f519q20nfejel)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="17" y="125.2451">User</text><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="54" x="6" y="41.9482">«Shop»</text><ellipse cx="184.2318" cy="79.1995" fill="#FEFECE" filter="url(#f519q20nfejel)" rx="89.2318" ry="20.2464" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="152" x="108.2318" y="83.8479">Send recept to Parent</text><!--link U to S--><path d="M60.1328,78.9531 C70.0216,78.9531 79.9104,78.9531 89.7992,78.9531 " fill="none" id="U-S" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="94.9705,78.9531,85.9705,74.9531,89.9705,78.9531,85.9705,82.9531,94.9705,78.9531" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+title Use Case Diagram 3
+
+
+actor :User: as U<<Shop>>
+
+
+(Send recept to Parent) as S
+
+
+U -> S
+@enduml
+
+PlantUML version 1.2018.13beta10(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.7.0_25-b15
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

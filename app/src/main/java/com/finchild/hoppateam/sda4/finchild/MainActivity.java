@@ -6,12 +6,15 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.finchild.hoppateam.sda4.finchild.dataUtils.DataUtils;
+import com.finchild.hoppateam.sda4.finchild.login.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -71,8 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String password  = editTextPassword.getText().toString().trim();
 
         //checking if email and passwords are empty
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+        if(!DataUtils.isEmail(email,this)){
             return;
         }
 
@@ -98,7 +100,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                         }else{
                             //display some message here
-                            Toast.makeText(MainActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
+                            //Log.e("tag",task.getResult().toString());
+
+                            //Toast.makeText(MainActivity.this,s.toString(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }

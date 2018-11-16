@@ -1,4 +1,4 @@
-package com.finchild.hoppateam.sda4.finchild;
+package com.finchild.hoppateam.sda4.finchild.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.finchild.hoppateam.sda4.finchild.MainActivity;
+import com.finchild.hoppateam.sda4.finchild.ProfileActivity;
+import com.finchild.hoppateam.sda4.finchild.R;
+import com.finchild.hoppateam.sda4.finchild.dataUtils.DataUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -70,8 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
         //checking if email and passwords are empty
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+        if(!DataUtils.isEmail(email,this)){
             return;
         }
 
@@ -97,6 +100,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             //start the profile activity
                             finish();
                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                        }else{
+                            Toast.makeText(LoginActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
                         }
                     }
                 });

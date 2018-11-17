@@ -35,7 +35,7 @@ public class Control extends AppCompatActivity {
     public void onClick(View view) {
         //if btnSpendLimit is pressed
         if (view == btnSpendLimit){
-            // Create an Intent to start the control activity
+            // Create an Intent to start the ChildSpendLimit activity
             Intent spendLimitIntent = new Intent(this, ChildSpendLimit.class);
             // Start the activity.
             startActivity(spendLimitIntent);

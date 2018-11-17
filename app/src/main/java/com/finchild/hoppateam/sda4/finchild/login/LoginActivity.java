@@ -12,7 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.finchild.hoppateam.sda4.finchild.AccountControl;
+import com.finchild.hoppateam.sda4.finchild.ChildSpendLimit;
+import com.finchild.hoppateam.sda4.finchild.Control;
 import com.finchild.hoppateam.sda4.finchild.MainActivity;
+import com.finchild.hoppateam.sda4.finchild.Notifications;
 import com.finchild.hoppateam.sda4.finchild.ProfileActivity;
 import com.finchild.hoppateam.sda4.finchild.R;
 import com.finchild.hoppateam.sda4.finchild.dataUtils.DataUtils;

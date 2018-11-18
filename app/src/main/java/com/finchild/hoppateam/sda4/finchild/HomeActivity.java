@@ -46,6 +46,7 @@ public class HomeActivity extends AppCompatActivity  {
                 //startActivity(new Intent(this, Tab2.class));
                 return true;
             case R.id.setting:
+                startActivity(new Intent(this, Settings.class));
                 return true;
             case R.id.logout:
                 //logging out the user

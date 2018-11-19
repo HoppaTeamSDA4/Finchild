@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Finchild</string>
+    <string name="app_name">FinChild</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

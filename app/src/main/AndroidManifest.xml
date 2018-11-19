@@ -16,8 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".login.LoginActivity"></activity>
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".Settings" />
+        <activity android:name=".AddChildAcount" />
+        <activity android:name=".AddParentAccount"></activity>
     </application>
 
 </manifest>

@@ -12,12 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.finchild.hoppateam.sda4.finchild.AccountControl;
-import com.finchild.hoppateam.sda4.finchild.ChildSpendLimit;
-import com.finchild.hoppateam.sda4.finchild.Control;
 import com.finchild.hoppateam.sda4.finchild.MainActivity;
-import com.finchild.hoppateam.sda4.finchild.Notifications;
-import com.finchild.hoppateam.sda4.finchild.ProfileActivity;
+import com.finchild.hoppateam.sda4.finchild.HomeActivity;
 import com.finchild.hoppateam.sda4.finchild.R;
 import com.finchild.hoppateam.sda4.finchild.dataUtils.DataUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -55,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //close this activity
             finish();
             //opening profile activity
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
 
         //initializing views
@@ -103,7 +99,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if(task.isSuccessful()){
                             //start the profile activity
                             finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }else{
                             Toast.makeText(LoginActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
                         }

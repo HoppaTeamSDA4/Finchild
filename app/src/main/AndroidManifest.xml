@@ -23,7 +23,11 @@
         <activity android:name=".AccountControl" />
         <activity android:name=".Notifications" />
         <activity android:name=".Autofill" />
-        <activity android:name=".AllowedMarkets"></activity>
+        <activity android:name=".AllowedMarkets"/>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".Settings" />
+        <activity android:name=".AddChildAcount" />
+        <activity android:name=".AddParentAccount" />
     </application>
 
 </manifest>

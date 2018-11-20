@@ -71,7 +71,7 @@ public class Control extends AppCompatActivity {
         //if btnBack is pressed
         if (view == btnBack){
             // Create an Intent to start the ProfileActivity activity
-            Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
+            Intent profileActivityIntent = new Intent(this, HomeActivity.class);
             // Start the activity.
             startActivity(profileActivityIntent);
         }

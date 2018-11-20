@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity  {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add:
-                //startActivity(new Intent(this, Tab2.class));
+                startActivity(new Intent(this, AddChildAcount.class));
                 return true;
             case R.id.setting:
                 startActivity(new Intent(this, Settings.class));

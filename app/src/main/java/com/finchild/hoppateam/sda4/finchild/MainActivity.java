@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference userRf= database.getReference().child("user").child(userId);
                             userRf.child("email").setValue(email);
-                            userRf.child("passoword").setValue(password);
+                            userRf.child("password").setValue(password);
                             userRf.child("personalNumber").setValue(personalNo);
                             finish();
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));

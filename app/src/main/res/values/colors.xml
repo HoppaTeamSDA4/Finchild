@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="colorTextTitle">#ffffff</color>
+    <color name="colorTextTitle">#000000</color>
     <color name="colorText">#000000</color>
-    <color name="colorBackground">#ffb74d</color>
+    <color name="colorBackground">#ffffff</color>
     <color name="colorTextButton">#000000</color>
     <color name="colorBackgroundEditText">#ffffff</color>
 

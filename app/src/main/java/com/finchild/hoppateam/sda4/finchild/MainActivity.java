@@ -1,18 +1,19 @@
 package com.finchild.hoppateam.sda4.finchild;
 
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import java.util.LinkedList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private final LinkedList<String> mWordList = new LinkedList<>();
+    private RecyclerView.Adapter adapter;
+    List<Purchase_Details> purchases = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,38 +21,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int wordlistSize =mWordList.size();
-                //add the new word to the list
-                mWordList.addLast("+ Purchase " + wordlistSize);
-                // Notify the adapter, that the data has changed
-                mRecyclerView.getAdapter().notifyItemInserted(wordlistSize);
-                //Scroll to the button
-                mRecyclerView.smoothScrollToPosition(wordlistSize);
-            }
-        });
+        //purchases = new ArrayList<Purchase_Details>();
+         initialiseData();
 
 
-        // put data into the wordlist
-        for (int i = 0; i < 20; i++) {
-            mWordList.addLast(" Purchase " + i);
-        }
         //Create recycler view
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         // create an adapter and supply the data to be displayed
-        mAdapter = new MyAdapter(this, mWordList);
-        //Connect the adapter with REcycler View
-        mRecyclerView.setAdapter(mAdapter);
+        adapter = new RVAdapter(this, purchases);
+        //Connect the adapter with RecyclerView
+        mRecyclerView.setAdapter(adapter);
         //Give the recycler view a default layout manager
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
     }
-}
 
+    // Method of Initiating Data in the list, to be called for the RecyclerView
+         public void initialiseData(){
 
+        purchases.add(new Purchase_Details("1/1/2018", "ICA", 30.5));
+        purchases.add(new Purchase_Details("1/2/2018", "MAXI", 20.5));
 
+        }
+    }
 

@@ -61,7 +61,7 @@ public class AddParentAccount extends AppCompatActivity {
 
         final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final DatabaseReference accountRef = FirebaseDatabase.getInstance().getReference().child("account").child(userId);
-        accountRef.addValueEventListener(new ValueEventListener() {
+        accountRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
@@ -72,7 +72,7 @@ public class AddParentAccount extends AppCompatActivity {
                     for(DataSnapshot accountShot:dataSnapshot.getChildren()){
                         showNameView.setText("Name: "+accountShot.child("name").getValue());
                         showCardNoView.setText("Card Number: "+accountShot.child("cardNo").getValue());
-                        showAccNoView.setText("Account Number:"+accountShot.getKey());
+                        showAccNoView.setText("Account Number: "+accountShot.getKey());
                     }
                     deleteBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -129,6 +129,7 @@ public class AddParentAccount extends AppCompatActivity {
 
             }
         });
+
     }
 
 }

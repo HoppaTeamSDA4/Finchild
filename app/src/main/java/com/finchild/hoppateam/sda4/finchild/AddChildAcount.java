@@ -100,6 +100,7 @@ public class AddChildAcount extends AppCompatActivity {
                 childAccRef.child(parentAcc).child(childAccNo).child("mobile number").setValue(childMobile);
                 childAccRef.child(parentAcc).child(childAccNo).child("name").setValue(childName);
                 childAccRef.child(parentAcc).child(childAccNo).child("personal number").setValue(childPersonalNo);
+                childAccRef.child(parentAcc).child(childAccNo).child("status").setValue(true);
             }
 
             @Override

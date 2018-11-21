@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -29,7 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Settings extends AppCompatActivity implements View.OnClickListener {
     private final String[] profile_menu = {"Change Password", "Add Card and Account",};
     private TextView item_view;
-    private Button btnBack;
+    private ImageView btnBack;
     private Button pwReset;
     private PopupWindow popupWindow;
     private String pw;
@@ -41,7 +42,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ListView lv = (ListView) findViewById(R.id.childAccList);
-        btnBack = (Button) findViewById(R.id.btn_settings_back);
+        btnBack = (ImageView) findViewById(R.id.ivBack);
         btnBack.setOnClickListener(this);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

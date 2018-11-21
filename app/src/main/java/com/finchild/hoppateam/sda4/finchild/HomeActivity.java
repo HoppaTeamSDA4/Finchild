@@ -3,19 +3,31 @@ package com.finchild.hoppateam.sda4.finchild;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.finchild.hoppateam.sda4.finchild.adapter.ChildAdapter;
 import com.finchild.hoppateam.sda4.finchild.login.LoginActivity;
+import com.finchild.hoppateam.sda4.finchild.modules.ChildDetails;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class HomeActivity extends AppCompatActivity  {
-    private FirebaseAuth firebaseAuth;
+import java.util.ArrayList;
+import java.util.List;
 
-    private Button btnSettings;
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+    private FirebaseAuth firebaseAuth;
+    private ImageView backBtn;
+    private ImageView btnSettings;
+    private Button btnAddChild;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter adapter;
+    List<ChildDetails> children = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +36,24 @@ public class HomeActivity extends AppCompatActivity  {
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
+        backBtn=(ImageView) findViewById(R.id.ivBack);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnAddChild= (Button) findViewById(R.id.btnAddChild);
+        backBtn.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
+        btnAddChild.setOnClickListener(this);
+        //purchases = new ArrayList<Purchase_Details>();
+        initialiseData();
 
-        btnSettings = (Button) findViewById(R.id.btnSetting);
+
+        //Create recycler view
+        mRecyclerView = (RecyclerView) findViewById(R.id.childrenList);
+        // create an adapter and supply the data to be displayed
+        adapter = new ChildAdapter(this, children);
+        //Connect the adapter with RecyclerView
+        mRecyclerView.setAdapter(adapter);
+        //Give the recycler view a default layout manager
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //if the user is not logged in
         //that means current user will return null
@@ -40,43 +68,42 @@ public class HomeActivity extends AppCompatActivity  {
         FirebaseUser user = firebaseAuth.getCurrentUser();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.add:
-                startActivity(new Intent(this, AddChildAcount.class));
-                return true;
-            case R.id.setting:
-                startActivity(new Intent(this, Settings.class));
-                return true;
-            case R.id.logout:
-                //logging out the user
-                firebaseAuth.signOut();
-                //closing activity
-                finish();
-                //starting login activity
-                startActivity(new Intent(this, LoginActivity.class));
-                return true;
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     public void onClick(View view) {
         //if btnSettings is pressed
-        if (view == btnSettings){
-            // Create an Intent to start the control activity
-            Intent settingsIntent = new Intent(this, Control.class);
-            // Start the activity.
-            startActivity(settingsIntent);
 
+        if(view==btnAddChild){
+             Intent settingsIntent = new Intent(this, AddChildAcount.class);
+             // Start the activity.                                                  
+             startActivity(settingsIntent);                                          
+                                                                                     
         }
+
+        if(view==btnSettings) {
+            startActivity(new Intent(this, Settings.class));
+        }
+
+        if(view==backBtn){
+            firebaseAuth.signOut();
+            //closing activity
+            finish();
+            //starting login activity
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+    }
+
+    // Method of Initiating Data in the list, to be called for the RecyclerView
+    public void initialiseData(){
+
+        children.add(new ChildDetails("Gloria", "2500 Kr", 0));
+        children.add(new ChildDetails("Adam", "1000 Kr", 1));
+        children.add(new ChildDetails("Gloria", "2500 Kr", 0));
+        children.add(new ChildDetails("Adam", "1000 Kr", 1));
+        children.add(new ChildDetails("Gloria", "2500 Kr", 0));
+        children.add(new ChildDetails("Adam", "1000 Kr", 1));
+        children.add(new ChildDetails("Gloria", "2500 Kr", 0));
+        children.add(new ChildDetails("Adam", "1000 Kr", 1));
+        children.add(new ChildDetails("Gloria", "2500 Kr", 0));
+        children.add(new ChildDetails("Adam", "1000 Kr", 1));
+
     }
 }

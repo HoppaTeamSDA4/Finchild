@@ -7,35 +7,32 @@
     android:background="@android:color/white"
     tools:context=".AddParentAccount">
 
-    <Button
-        android:id="@+id/btn_back"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@mipmap/chevronleftblack"
-        android:text="Profile"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textSize="24sp"
-        android:textStyle="bold"
-     />
+    <fragment
+        android:id="@+id/topHomeFrag"
+        android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_top_home" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="341dp"
         android:layout_height="152dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        app:layout_constraintTop_toBottomOf="@+id/topHomeFrag"
         app:srcCompat="@drawable/card" />
 
     <EditText
         android:id="@+id/fullname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         android:ems="10"
         android:hint="Your fullname"
         android:inputType="textPersonName"
@@ -47,7 +44,7 @@
         android:id="@+id/cardNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:ems="10"
         android:hint="Your bankcard number"
         android:inputType="number"
@@ -60,7 +57,7 @@
         android:id="@+id/accountNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:ems="10"
         android:hint="Your bank account"
         android:inputType="number"
@@ -72,24 +69,27 @@
 
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="30dp"
+        android:background="@color/colorPrimary"
         android:text="Confirm"
+        android:textColor="@color/colorTextButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNo"
-        android:textAllCaps="false"
         app:layout_constraintVertical_bias="0.24" />
 
     <TextView
         android:id="@+id/showName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="20dp"
         android:ems="10"
@@ -102,7 +102,7 @@
         android:id="@+id/showCardNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="20dp"
         android:inputType="number"
@@ -117,7 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="20dp"
         android:ems="10"
@@ -128,17 +128,19 @@
 
     <Button
         android:id="@+id/deleteBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimary"
+        android:text="Delete Account"
+        android:textColor="@color/colorTextButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNo"
-        app:layout_constraintVertical_bias="0.24"
-        android:text="Delete Account"
-        android:textAllCaps="false"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"/>
+        app:layout_constraintVertical_bias="0.24" />
 
 </android.support.constraint.ConstraintLayout>

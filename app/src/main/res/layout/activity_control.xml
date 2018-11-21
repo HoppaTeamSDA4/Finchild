@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".Control">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        android:onClick="onClick"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/TitleViewControl"
+        android:textColor="@color/colorTextTitle"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_marginBottom="50dp" />
+
+    <Button
+        android:id="@+id/btnSpendLimit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Spending limits"
+        android:textColor="@color/colorTextButton"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btnAutofill"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Autofill"
+        android:textColor="@color/colorTextButton"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btnAccountControl"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Account control"
+        android:textColor="@color/colorTextButton"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btnAllowedMarkets"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Allowed markets"
+        android:textColor="@color/colorTextButton"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btnNotifications"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        android:textColor="@color/colorTextButton"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:onClick="onClick"/>
+
+</LinearLayout>

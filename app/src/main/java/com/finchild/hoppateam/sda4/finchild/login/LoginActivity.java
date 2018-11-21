@@ -12,8 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.finchild.hoppateam.sda4.finchild.HomeActivity;
 import com.finchild.hoppateam.sda4.finchild.MainActivity;
+import com.finchild.hoppateam.sda4.finchild.HomeActivity;
 import com.finchild.hoppateam.sda4.finchild.R;
 import com.finchild.hoppateam.sda4.finchild.dataUtils.DataUtils;
 import com.google.android.gms.tasks.OnCompleteListener;

@@ -23,18 +23,18 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PurchaseViewHolder
     public static class PurchaseViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
-        EditText purchase_date;
-        TextView store;
-        EditText amount;
+        EditText textView_purchase_date;
+        TextView textView_store;
+        EditText textView_amount;
         RVAdapter mAdapter;
 
         public PurchaseViewHolder(@NonNull View itemView, RVAdapter adapter) {
             super(itemView);
             this.mAdapter = adapter;
             cardView = (CardView) itemView.findViewById(R.id.purchase_cardview);
-            purchase_date = (EditText) itemView.findViewById(R.id.purchase_date);
-            store = (TextView) itemView.findViewById(R.id.store);
-            amount = (EditText) itemView.findViewById(R.id.amount);
+            textView_purchase_date = (EditText) itemView.findViewById(R.id.purchase_date);
+            textView_store = (TextView) itemView.findViewById(R.id.store);
+            textView_amount = (EditText) itemView.findViewById(R.id.amount);
         }
     }
 
@@ -56,9 +56,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PurchaseViewHolder
     @Override
     public void onBindViewHolder(@NonNull PurchaseViewHolder purchaseViewHolder, int i) {
         Purchase_Details purchase = Purchases.get(i);
-        purchaseViewHolder.purchase_date.setText(Purchases.get(i).getPurchase_date());
-        purchaseViewHolder.store.setText(Purchases.get(i).getStore());
-        purchaseViewHolder.amount.setText(String.valueOf(Purchases.get(i).getAmount()));
+        purchaseViewHolder.textView_purchase_date.setText(purchase.getPurchase_date());
+        purchaseViewHolder.textView_store.setText(purchase.getStore());
+        purchaseViewHolder.textView_amount.setText(String.valueOf(purchase.getAmount()));
     }
 
     @Override

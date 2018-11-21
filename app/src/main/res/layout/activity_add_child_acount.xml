@@ -7,34 +7,23 @@
     tools:context=".AddChildAcount"
     android:background="@android:color/white">
 
-    <Button
-        android:id="@+id/btn_settings_back"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@mipmap/chevronleftblack"
-        android:text="Back"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="309dp"
-        android:layout_height="135dp"
+    <fragment
+        android:id="@+id/topHomeFrag"
+        android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_settings_back"
-        app:srcCompat="@drawable/childaccount" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_top_home" />
+
 
     <EditText
         android:id="@+id/childName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="109dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="Child's name"
@@ -42,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/topHomeFrag" />
 
     <EditText
         android:id="@+id/childCardNo"
@@ -92,17 +81,19 @@
 
     <Button
         android:id="@+id/addChildBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
         android:text="Confirm"
-        android:textAllCaps="false"
+        android:textColor="@color/colorTextButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/childMobile"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/childMobile" />
 
     <EditText
         android:id="@+id/childMobile"

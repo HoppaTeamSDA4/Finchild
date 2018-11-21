@@ -1,6 +1,7 @@
 package com.finchild.hoppateam.sda4.finchild;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,8 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class AddChildAcount extends AppCompatActivity {
-    private Button backBtn;
+
     private Button confirmBtn;
+    private ImageView backBtn;
     private EditText childNameView;
     private EditText childCardNoView;
     private EditText childAccNoView;
@@ -34,8 +37,8 @@ public class AddChildAcount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_child_acount);
-        backBtn = (Button) findViewById(R.id.btn_settings_back);
         confirmBtn = (Button) findViewById(R.id.addChildBtn);
+        backBtn=(ImageView) findViewById(R.id.ivBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

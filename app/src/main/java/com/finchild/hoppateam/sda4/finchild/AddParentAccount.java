@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ public class AddParentAccount extends AppCompatActivity {
     private TextView showAccNoView;
     private Button confirmBtn;
     private Button deleteBtn;
-    private Button backBtn;
+    private ImageView backBtn;
   
 
     @Override
@@ -46,7 +47,7 @@ public class AddParentAccount extends AppCompatActivity {
         showCardNoView = (TextView) findViewById(R.id.showCardNo);
         showAccNoView = (TextView) findViewById(R.id.showAccNo);
         deleteBtn = (Button) findViewById(R.id.deleteBtn);
-        backBtn = (Button) findViewById(R.id.btn_back);
+        backBtn = (ImageView) findViewById(R.id.ivBack);
         checkAccount();
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

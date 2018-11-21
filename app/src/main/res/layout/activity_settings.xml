@@ -12,18 +12,15 @@
         android:orientation="vertical"
         android:layout_margin="3dp">
 
-        <Button
-            android:id="@+id/btn_settings_back"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@mipmap/chevronleftblack"
-            android:text="Back"
-            android:textAlignment="textStart"
-            android:textAllCaps="false"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
+        <fragment
+            android:id="@+id/topHomeFrag"
+            android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/fragment_top_home" />
 
         <ListView
             android:id="@+id/childAccList"

@@ -29,7 +29,8 @@
         <activity android:name=".Settings" />
         <activity android:name=".AddChildAcount" />
         <activity android:name=".AddParentAccount" />
-        <activity android:name=".Analytics"></activity>
+        <activity android:name=".Analytics" />
+        <activity android:name=".Fill"></activity>
     </application>
 
 </manifest>

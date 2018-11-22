@@ -36,12 +36,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private List<ChildAccount> childAccList = new ArrayList<>();
     private String userId;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
+
         //if the user is not logged in
         //that means current user will return null
          FirebaseUser user = firebaseAuth.getCurrentUser(); 
@@ -53,11 +55,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else{
             userId = user.getUid();
         }
-        btnSettings=(ImageView) findViewById(R.id.ivSettings);
-        btnSettings.setOnClickListener(this);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);  
         btnAddChild = (Button) findViewById(R.id.btnAddChild);
-        btnSettings.setOnClickListener(this);
         backBtn = (ImageView) findViewById(R.id.ivBack);
+        backBtn.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
         btnAddChild.setOnClickListener(this);
 
         initialiseData();
@@ -74,7 +76,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-
     }
 
     public void onClick(View view) {
@@ -99,6 +100,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, LoginActivity.class));
         }
     }
+
 
     // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData() {
@@ -144,6 +146,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
 
 
     }

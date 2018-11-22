@@ -6,21 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+
     <fragment
         android:id="@+id/topHomeFrag"
         android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_top_home" />
+
 
     <include
         layout="@layout/children_list_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomHomeFrag"
+        app:layout_constraintBottom_toTopOf="@id/bottomHomeFrag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topHomeFrag" />

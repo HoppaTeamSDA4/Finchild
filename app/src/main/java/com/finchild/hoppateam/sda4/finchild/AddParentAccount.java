@@ -48,6 +48,8 @@ public class AddParentAccount extends AppCompatActivity {
         showAccNoView = (TextView) findViewById(R.id.showAccNo);
         deleteBtn = (Button) findViewById(R.id.deleteBtn);
         backBtn = (ImageView) findViewById(R.id.ivBack);
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
         checkAccount();
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

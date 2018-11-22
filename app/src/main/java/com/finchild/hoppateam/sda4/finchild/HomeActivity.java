@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
     private ImageView backBtn;
@@ -29,12 +31,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView.Adapter adapter;
     List<ChildDetails> children = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
+
 
         backBtn=(ImageView) findViewById(R.id.ivBack);
         btnSettings = (ImageView) findViewById(R.id.ivSettings);
@@ -54,6 +58,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mRecyclerView.setAdapter(adapter);
         //Give the recycler view a default layout manager
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         //if the user is not logged in
         //that means current user will return null
@@ -91,6 +96,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
     // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData(){
 
@@ -104,6 +110,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         children.add(new ChildDetails("Adam", "1000 Kr", 1));
         children.add(new ChildDetails("Gloria", "2500 Kr", 0));
         children.add(new ChildDetails("Adam", "1000 Kr", 1));
+
 
     }
 }

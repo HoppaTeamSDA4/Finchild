@@ -39,6 +39,8 @@ public class AddChildAcount extends AppCompatActivity {
         setContentView(R.layout.activity_add_child_acount);
         confirmBtn = (Button) findViewById(R.id.addChildBtn);
         backBtn=(ImageView) findViewById(R.id.ivBack);
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -43,6 +43,8 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_settings);
         ListView lv = (ListView) findViewById(R.id.childAccList);
         btnBack = (ImageView) findViewById(R.id.ivBack);
+        // to set the back button instead of the logout
+        btnBack.setImageResource(R.drawable.back_button);
         btnBack.setOnClickListener(this);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

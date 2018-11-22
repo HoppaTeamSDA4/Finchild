@@ -15,7 +15,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class HomeActivity extends AppCompatActivity  {
     private FirebaseAuth firebaseAuth;
 
-    private Button btnSettings;
+    //view objects
+    private Button btnControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,8 @@ public class HomeActivity extends AppCompatActivity  {
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
-
-        btnSettings = (Button) findViewById(R.id.btnSetting);
+        //initializing views
+        btnControl = (Button) findViewById(R.id.btnControl);
 
         //if the user is not logged in
         //that means current user will return null
@@ -71,11 +72,11 @@ public class HomeActivity extends AppCompatActivity  {
 
     public void onClick(View view) {
         //if btnSettings is pressed
-        if (view == btnSettings){
+        if (view == btnControl){
             // Create an Intent to start the control activity
-            Intent settingsIntent = new Intent(this, Control.class);
+            Intent controlIntent = new Intent(this, Control.class);
             // Start the activity.
-            startActivity(settingsIntent);
+            startActivity(controlIntent);
 
         }
     }

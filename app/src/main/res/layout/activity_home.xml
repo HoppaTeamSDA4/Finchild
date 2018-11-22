@@ -7,7 +7,7 @@
     tools:context=".HomeActivity">
 
     <Button
-        android:id="@+id/btnSetting"
+        android:id="@+id/btnControl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -15,7 +15,7 @@
         android:layout_marginTop="22dp"
         android:layout_marginEnd="25dp"
         android:layout_gravity="right"
-        android:text="Settings"
+        android:text="Control"
         android:textColor="@color/colorTextButton"
         android:onClick="onClick"/>
 

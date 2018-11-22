@@ -63,4 +63,13 @@
         <item>Hemköp</item>
 
     </string-array>
+
+    <string-array name="typeData">
+        <item>Options</item>
+        <item>Purchases</item>
+        <item>Top items</item>
+        <item>Frequent stores</item>
+
+    </string-array>
+
 </resources>

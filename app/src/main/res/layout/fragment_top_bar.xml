@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TopHomeFrag"
-    tools:ignore="MissingDefaultResource">
+    tools:context=".TopBarFragment">
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
@@ -26,15 +27,16 @@
         android:src="@drawable/kids" />
 
     <ImageView
-        android:id="@+id/ivBack"
+        android:id="@+id/ivLogout"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="24dp"
         android:adjustViewBounds="false"
-        android:background="@color/colorText"
-        android:backgroundTint="@color/common_google_signin_btn_text_light_default"
+        android:background="@color/common_google_signin_btn_text_light_focused"
+        android:backgroundTint="@color/common_google_signin_btn_text_light_focused"
         android:fadingEdge="none"
         android:src="@drawable/logout"
         android:tint="@color/colorTextButton" />
@@ -45,11 +47,10 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_marginTop="24dp"
         android:layout_marginRight="0dp"
-        android:background="@color/colorText"
-        android:backgroundTint="@color/common_google_signin_btn_text_light_default"
+        android:background="@color/common_google_signin_btn_text_light_focused"
+        android:backgroundTint="@color/common_google_signin_btn_text_light_focused"
         android:src="@drawable/settings"
         android:tint="@color/colorTextButton" />
 

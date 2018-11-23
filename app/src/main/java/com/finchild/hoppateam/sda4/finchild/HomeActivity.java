@@ -1,11 +1,18 @@
 package com.finchild.hoppateam.sda4.finchild;
 
+
+
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -31,15 +38,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView backBtn;
     private ImageView btnSettings;
     private Button btnAddChild;
+    private Fragment topImageFrag;
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter adapter;
     private List<ChildAccount> childAccList = new ArrayList<>();
     private String userId;
+    private MyGestureListener mgListener;
+    private GestureDetector mDetector;
+    private final static String TAG = "MyGesture";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mgListener = new MyGestureListener();
+        mDetector = new GestureDetector(getApplicationContext(), mgListener);
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
         //if the user is not logged in
@@ -53,21 +69,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else{
             userId = user.getUid();
         }
+        topImageFrag=this.getSupportFragmentManager().findFragmentById(R.id.topHomeFrag);
+
+
+
         btnSettings=(ImageView) findViewById(R.id.ivSettings);
         btnSettings.setOnClickListener(this);
         btnAddChild = (Button) findViewById(R.id.btnAddChild);
-        btnSettings.setOnClickListener(this);
-        backBtn = (ImageView) findViewById(R.id.ivBack);
         btnAddChild.setOnClickListener(this);
-
+        backBtn = (ImageView) findViewById(R.id.ivBack);
+        backBtn.setOnClickListener(this);
         initialiseData();
-        mRecyclerView = (RecyclerView) findViewById(R.id.childrenList);
-        // create an adapter and supply the data to be displayed
-        adapter = new ChildAdapter(this, childAccList);
-        //Connect the adapter with RecyclerView
-        mRecyclerView.setAdapter(adapter);
-        //Give the recycler view a default layout manager
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
     }
 
@@ -76,6 +89,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onStart();
 
     }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return mDetector.onTouchEvent(event);
+    }
+
 
     public void onClick(View view) {
         //if btnSettings is pressed
@@ -146,6 +164,48 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
+    }
+
+    private class MyGestureListener implements GestureDetector.OnGestureListener {
+
+        @Override
+        public boolean onDown(MotionEvent motionEvent) {
+            return false;
+        }
+
+        @Override
+        public void onShowPress(MotionEvent motionEvent) {
+
+        }
+
+        @Override
+        public boolean onSingleTapUp(MotionEvent motionEvent) {
+            Log.d(TAG, "onSingleTapUp");
+            return false;
+        }
+
+        @Override
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+            Log.d(TAG, "onScroll");
+            return false;
+        }
+
+        @Override
+        public void onLongPress(MotionEvent motionEvent) {
+            FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.show(topImageFrag);
+            fragmentTransaction.commit();
+            Log.d(TAG, "onLongPress");
+        }
+
+        @Override
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+            FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.hide(topImageFrag);
+            fragmentTransaction.commit();
+            Log.d(TAG, "onFling");
+            return false;
+        }
     }
 
 

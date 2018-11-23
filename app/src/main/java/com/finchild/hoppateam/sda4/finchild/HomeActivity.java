@@ -50,6 +50,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mDetector = new GestureDetector(getApplicationContext(), mgListener);
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
+
         //if the user is not logged in
         //that means current user will return null
          FirebaseUser user = firebaseAuth.getCurrentUser(); 
@@ -69,15 +71,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else{
             userId = user.getUid();
         }
+
         topImageFrag=this.getSupportFragmentManager().findFragmentById(R.id.topHomeFrag);
 
 
 
-        btnSettings=(ImageView) findViewById(R.id.ivSettings);
-        btnSettings.setOnClickListener(this);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);  
         btnAddChild = (Button) findViewById(R.id.btnAddChild);
-        btnAddChild.setOnClickListener(this);
         backBtn = (ImageView) findViewById(R.id.ivBack);
+        backBtn.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
         backBtn.setOnClickListener(this);
         initialiseData();
 
@@ -87,7 +90,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -117,6 +119,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, LoginActivity.class));
         }
     }
+
 
     // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData() {
@@ -162,6 +165,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
 
 
     }

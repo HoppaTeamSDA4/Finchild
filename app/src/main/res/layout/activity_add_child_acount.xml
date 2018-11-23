@@ -10,9 +10,12 @@
     <fragment
         android:id="@+id/topHomeFrag"
         android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_width="0dp"
+        android:layout_height="249dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/childName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_top_home" />

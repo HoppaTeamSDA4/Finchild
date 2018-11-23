@@ -1,15 +1,15 @@
 package com.finchild.hoppateam.sda4.finchild;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 
 import com.finchild.hoppateam.sda4.finchild.adapter.ChildAdapter;
 import com.finchild.hoppateam.sda4.finchild.login.LoginActivity;
@@ -39,6 +39,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
+        SystemClock.sleep(9000);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //initializing firebase authentication object
@@ -63,13 +65,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnAddChild.setOnClickListener(this);
 
         initialiseData();
-        mRecyclerView = (RecyclerView) findViewById(R.id.childrenList);
-        // create an adapter and supply the data to be displayed
-        adapter = new ChildAdapter(this, childAccList);
-        //Connect the adapter with RecyclerView
-        mRecyclerView.setAdapter(adapter);
-        //Give the recycler view a default layout manager
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

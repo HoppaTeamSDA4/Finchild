@@ -80,7 +80,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnAddChild = (Button) findViewById(R.id.btnAddChild);
         backBtn = (ImageView) findViewById(R.id.ivBack);
         backBtn.setOnClickListener(this);
-        btnSettings.setOnClickListener(this);
+        btnAddChild.setOnClickListener(this);
         backBtn.setOnClickListener(this);
         initialiseData();
 

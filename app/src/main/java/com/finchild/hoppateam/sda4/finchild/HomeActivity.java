@@ -3,11 +3,12 @@ package com.finchild.hoppateam.sda4.finchild;
 
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,7 +17,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 
 import com.finchild.hoppateam.sda4.finchild.adapter.ChildAdapter;
 import com.finchild.hoppateam.sda4.finchild.login.LoginActivity;
@@ -53,6 +53,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
+        SystemClock.sleep(9000);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mgListener = new MyGestureListener();
@@ -80,10 +82,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnAddChild = (Button) findViewById(R.id.btnAddChild);
         backBtn = (ImageView) findViewById(R.id.ivBack);
         backBtn.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
         btnAddChild.setOnClickListener(this);
-        backBtn.setOnClickListener(this);
         initialiseData();
-
 
     }
 

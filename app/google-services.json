@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "878566605501",
+    "firebase_url": "https://finchild-d4696.firebaseio.com",
+    "project_id": "finchild-d4696",
+    "storage_bucket": "finchild-d4696.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878566605501:android:b3e65f8a1fc2afda",
+        "android_client_info": {
+          "package_name": "com.finchild.hoppateam.sda4.finchild"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878566605501-5paro7m1vaaekd19cp3ita936bsklmpm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.finchild.hoppateam.sda4.finchild",
+            "certificate_hash": "b81f4a397b7ca97f8f6d66f82f35212275d83b12"
+          }
+        },
+        {
+          "client_id": "878566605501-o212jd6gdrljpiokviji5cjjmcqfsaqh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.finchild.hoppateam.sda4.finchild",
+            "certificate_hash": "6550bd9d1eb05e45d0661ba652eb357ef5d476b3"
+          }
+        },
+        {
+          "client_id": "878566605501-mpi95u1fpdk6qgfu64e84kfp1bc8ave9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.finchild.hoppateam.sda4.finchild",
+            "certificate_hash": "93b113a823cb5b75325600f15c68b22ada1303b1"
+          }
+        },
+        {
+          "client_id": "878566605501-4fjg20gievu8nvs4m2e40shrurgrfck6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbisiteZYhrNqxSWMr17EeVFuyQGrGUf8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878566605501-4fjg20gievu8nvs4m2e40shrurgrfck6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

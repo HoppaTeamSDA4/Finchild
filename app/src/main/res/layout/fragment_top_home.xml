@@ -33,8 +33,6 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="24dp"
         android:adjustViewBounds="false"
-        android:background="@color/colorText"
-        android:backgroundTint="@color/common_google_signin_btn_text_light_default"
         android:fadingEdge="none"
         android:src="@drawable/logout"
         android:tint="@color/colorTextButton" />
@@ -48,8 +46,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="24dp"
         android:layout_marginRight="0dp"
-        android:background="@color/colorText"
-        android:backgroundTint="@color/common_google_signin_btn_text_light_default"
         android:src="@drawable/settings"
         android:tint="@color/colorTextButton" />
 

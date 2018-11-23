@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.finchild.hoppateam.sda4.finchild.R;
+import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
 import com.finchild.hoppateam.sda4.finchild.modules.ChildDetails;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
 
     Context context;
     private final LayoutInflater mInflater;
-    List<ChildDetails> children;
+    private List<ChildAccount> childAccList;
     private int currentPosition = 0;
 
 
@@ -42,9 +43,9 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     }
 
 
-    public ChildAdapter(Context context, List<ChildDetails> list) {
+    public ChildAdapter(Context context, List<ChildAccount> list) {
         mInflater = LayoutInflater.from(context);
-        this.children = list;
+        this.childAccList = list;
     }
 
 
@@ -58,11 +59,11 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ChildViewHolder childViewHolder, int position) {
-        ChildDetails child = children.get(position);
-        childViewHolder.tvName.setText(child.getName());
-        childViewHolder.tvBalance.setText(child.getBalance());
+        ChildAccount childAccount = childAccList.get(position);
+        childViewHolder.tvName.setText(childAccount.getName());
+        childViewHolder.tvBalance.setText(Double.toString(childAccount.getBalance()));
 
-        if(child.getIdPicture() == 0){
+        if(position%2 == 0){
             childViewHolder.ivChild.setImageResource(R.drawable.kid1);
         } else {
             childViewHolder.ivChild.setImageResource(R.drawable.kid2);
@@ -84,7 +85,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     }
     @Override
     public int getItemCount() {
-        return children.size();
+        return childAccList.size();
     }
 
 }

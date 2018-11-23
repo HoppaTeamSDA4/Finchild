@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -100,12 +101,15 @@ public class AddChildAcount extends AppCompatActivity {
                     return;
                 }
 
+                ChildAccount newChildAcc= new ChildAccount(childAccNo,childCardNo,childName,childPersonalNo,childMobile,0.00,true);
+                childAccRef.child(parentAcc).push().setValue(newChildAcc);
 
-                childAccRef.child(parentAcc).child(childAccNo).child("card number").setValue(childCardNo);
-                childAccRef.child(parentAcc).child(childAccNo).child("mobile number").setValue(childMobile);
-                childAccRef.child(parentAcc).child(childAccNo).child("name").setValue(childName);
-                childAccRef.child(parentAcc).child(childAccNo).child("personal number").setValue(childPersonalNo);
-                childAccRef.child(parentAcc).child(childAccNo).child("status").setValue(true);
+
+                //childAccRef.child(parentAcc).child(childAccNo).child("card number").setValue(childCardNo);
+               // childAccRef.child(parentAcc).child(childAccNo).child("mobile number").setValue(childMobile);
+                //childAccRef.child(parentAcc).child(childAccNo).child("name").setValue(childName);
+                //childAccRef.child(parentAcc).child(childAccNo).child("personal number").setValue(childPersonalNo);
+                //childAccRef.child(parentAcc).child(childAccNo).child("status").setValue(true);
             }
 
             @Override

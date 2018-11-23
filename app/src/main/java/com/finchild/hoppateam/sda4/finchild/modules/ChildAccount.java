@@ -7,17 +7,20 @@ public class ChildAccount {
     private String name;
     private String personalNumber;
     private String mobileNumber;
+    private double balance;
     private boolean status;
 
     public ChildAccount() {
     }
 
-    public ChildAccount(String accountNo, String cardNumber, String name, String personalNumber, String mobileNumber, boolean status) {
+    public ChildAccount(String accountNo, String cardNumber, String name, String personalNumber, String mobileNumber,double balance, boolean status) {
+
         this.accountNo = accountNo;
         this.cardNumber = cardNumber;
         this.name = name;
         this.personalNumber = personalNumber;
         this.mobileNumber = mobileNumber;
+        this.balance=balance;
         this.status = status;
     }
 
@@ -61,6 +64,14 @@ public class ChildAccount {
         this.status = status;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     public String getMobileNumber() {
         return mobileNumber;
     }
@@ -68,4 +79,8 @@ public class ChildAccount {
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
+
+
+
+
 }

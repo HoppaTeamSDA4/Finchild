@@ -1,6 +1,8 @@
 package com.finchild.hoppateam.sda4.finchild.adapter;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.finchild.hoppateam.sda4.finchild.R;
 import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
@@ -29,16 +33,22 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
         ImageView ivChild;
         TextView tvName, tvBalance;
         CardView cvChild;
+        ConstraintLayout constraintLayout;
+        LinearLayout linearLayout;
 
         ChildAdapter mAdapter;
 
-        public ChildViewHolder(@NonNull View itemView, ChildAdapter adapter) {
+        public ChildViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.mAdapter = adapter;
+           // this.mAdapter = adapter;
             cvChild = (CardView) itemView.findViewById(R.id.cvChild);
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             tvBalance = (TextView) itemView.findViewById(R.id.tvBalance);
             ivChild = (ImageView) itemView.findViewById(R.id.ivChild);
+            constraintLayout = (ConstraintLayout) itemView.findViewById(R.id.childList);
+             linearLayout = (LinearLayout) itemView.findViewById(R.id.Child_layout);
+
+
         }
     }
 
@@ -54,7 +64,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     public ChildViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.child_home_row_layout, viewGroup, false);
-        return new ChildViewHolder (view, this);
+        return new ChildViewHolder (view);
     }
 
     @Override
@@ -63,26 +73,24 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
         childViewHolder.tvName.setText(childAccount.getName());
         childViewHolder.tvBalance.setText(Double.toString(childAccount.getBalance()));
 
-        if(position%2 == 0){
+       /* if(position%2 == 0){
             childViewHolder.ivChild.setImageResource(R.drawable.kid1);
         } else {
             childViewHolder.ivChild.setImageResource(R.drawable.kid2);
-        }
+        } */
 
+       childViewHolder.cvChild.setOnClickListener(new View.OnClickListener() {
 
-      /*  purchaseViewHolder.linearLayout.setVisility(View.GONE);
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, " Save meeee plz!", Toast.LENGTH_LONG).show();
+            }
+        });
 
-        // if the position is equale to the item position that want to expand
-        if (currentPosition == position) {
-            // creating visibility
-            Animation slideDown = AnimationUtils.loadAnimation(context, R.anim.item_animation);
-            //toggling visbilty
-            purchaseViewHolder.linearLayout.setVisibility(View.VISIBLE);
-            //adding sliding effect
-            purchaseViewHolder.linearLayout.startAnimation(slideDown);
-        }*/
 
     }
+
+
     @Override
     public int getItemCount() {
         return childAccList.size();

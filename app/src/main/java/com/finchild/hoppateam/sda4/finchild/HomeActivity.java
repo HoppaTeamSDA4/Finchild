@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
-        SystemClock.sleep(9000);
+        SystemClock.sleep(1000);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mgListener = new MyGestureListener();

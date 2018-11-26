@@ -36,6 +36,7 @@ public class AddChildAcount extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_child_acount);
         confirmBtn = (Button) findViewById(R.id.addChildBtn);

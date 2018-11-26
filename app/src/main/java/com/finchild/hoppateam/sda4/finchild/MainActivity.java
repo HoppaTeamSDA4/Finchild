@@ -1,5 +1,6 @@
 package com.finchild.hoppateam.sda4.finchild;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;

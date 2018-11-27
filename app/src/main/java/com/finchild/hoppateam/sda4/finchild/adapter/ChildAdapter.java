@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.finchild.hoppateam.sda4.finchild.AccountChildPurchases;
 import com.finchild.hoppateam.sda4.finchild.R;
 import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
 import com.finchild.hoppateam.sda4.finchild.modules.ChildDetails;
@@ -33,20 +35,17 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
         ImageView ivChild;
         TextView tvName, tvBalance;
         CardView cvChild;
-        ConstraintLayout constraintLayout;
-        LinearLayout linearLayout;
 
-        ChildAdapter mAdapter;
+
+        //ChildAdapter mAdapter;
 
         public ChildViewHolder(@NonNull View itemView) {
             super(itemView);
-           // this.mAdapter = adapter;
+            //this.mAdapter = adapter;
             cvChild = (CardView) itemView.findViewById(R.id.cvChild);
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             tvBalance = (TextView) itemView.findViewById(R.id.tvBalance);
             ivChild = (ImageView) itemView.findViewById(R.id.ivChild);
-            constraintLayout = (ConstraintLayout) itemView.findViewById(R.id.childList);
-             linearLayout = (LinearLayout) itemView.findViewById(R.id.Child_layout);
 
 
         }
@@ -56,6 +55,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     public ChildAdapter(Context context, List<ChildAccount> list) {
         mInflater = LayoutInflater.from(context);
         this.childAccList = list;
+        this.context=context;
     }
 
 
@@ -68,22 +68,26 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChildViewHolder childViewHolder, int position) {
-        ChildAccount childAccount = childAccList.get(position);
+    public void onBindViewHolder(@NonNull ChildViewHolder childViewHolder,  final int position) {
+        final ChildAccount childAccount = childAccList.get(position);
         childViewHolder.tvName.setText(childAccount.getName());
         childViewHolder.tvBalance.setText(Double.toString(childAccount.getBalance()));
 
-       /* if(position%2 == 0){
+       if(position%2 == 0){
             childViewHolder.ivChild.setImageResource(R.drawable.kid1);
         } else {
             childViewHolder.ivChild.setImageResource(R.drawable.kid2);
-        } */
+        }
 
-       childViewHolder.cvChild.setOnClickListener(new View.OnClickListener() {
-
+        childViewHolder.cvChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, " Save meeee plz!", Toast.LENGTH_LONG).show();
+                Log.d("onClick:clicked on",childAccList.get(position).getName());
+                Intent intent=new Intent(context,AccountChildPurchases.class);
+                intent.putExtra("childName",childAccList.get(position).getName());
+                intent.putExtra("childAccBalance",childAccList.get(position).getBalance());
+                intent.putExtra("childAccNo",childAccList.get(position).getAccountNo());
+                context.startActivity(intent);
             }
         });
 

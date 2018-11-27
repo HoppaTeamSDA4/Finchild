@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import com.finchild.hoppateam.sda4.finchild.adapter.ChildAdapter;
 import com.finchild.hoppateam.sda4.finchild.login.LoginActivity;
 import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
+import com.finchild.hoppateam.sda4.finchild.session.Session;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -131,7 +132,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 String ParentAccountNo = "";
                 for (DataSnapshot accshot : dataSnapshot.getChildren()) {
                     ParentAccountNo = accshot.getKey();
-                    System.out.println(ParentAccountNo);
+                    Session session=new Session(HomeActivity.this);
+                    session.setParentAcc(ParentAccountNo);
                 }
                 if (!ParentAccountNo.equals("") && ParentAccountNo != null) {
                     DatabaseReference childAccRef = FirebaseDatabase.getInstance().getReference().child("child").child(ParentAccountNo);

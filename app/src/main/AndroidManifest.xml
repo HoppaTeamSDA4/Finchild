@@ -31,7 +31,8 @@
         <activity android:name=".AddChildAcount" />
         <activity android:name=".AddParentAccount" />
         <activity android:name=".Analytics" />
-        <activity android:name=".Fill"></activity>
+        <activity android:name=".Fill" />
+        <activity android:name=".AccountChildPurchases" />
     </application>
 
 </manifest>

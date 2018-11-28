@@ -1,15 +1,21 @@
 package com.finchild.hoppateam.sda4.finchild.adapter;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.finchild.hoppateam.sda4.finchild.AccountChildPurchases;
 import com.finchild.hoppateam.sda4.finchild.R;
 import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
 import com.finchild.hoppateam.sda4.finchild.modules.ChildDetails;
@@ -30,15 +36,18 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
         TextView tvName, tvBalance;
         CardView cvChild;
 
-        ChildAdapter mAdapter;
 
-        public ChildViewHolder(@NonNull View itemView, ChildAdapter adapter) {
+        //ChildAdapter mAdapter;
+
+        public ChildViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.mAdapter = adapter;
+            //this.mAdapter = adapter;
             cvChild = (CardView) itemView.findViewById(R.id.cvChild);
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             tvBalance = (TextView) itemView.findViewById(R.id.tvBalance);
             ivChild = (ImageView) itemView.findViewById(R.id.ivChild);
+
+
         }
     }
 
@@ -46,6 +55,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     public ChildAdapter(Context context, List<ChildAccount> list) {
         mInflater = LayoutInflater.from(context);
         this.childAccList = list;
+        this.context=context;
     }
 
 
@@ -54,35 +64,37 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     public ChildViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.child_home_row_layout, viewGroup, false);
-        return new ChildViewHolder (view, this);
+        return new ChildViewHolder (view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChildViewHolder childViewHolder, int position) {
-        ChildAccount childAccount = childAccList.get(position);
+    public void onBindViewHolder(@NonNull ChildViewHolder childViewHolder,  final int position) {
+        final ChildAccount childAccount = childAccList.get(position);
         childViewHolder.tvName.setText(childAccount.getName());
         childViewHolder.tvBalance.setText(Double.toString(childAccount.getBalance()));
 
-        if(position%2 == 0){
+       if(position%2 == 0){
             childViewHolder.ivChild.setImageResource(R.drawable.kid1);
         } else {
             childViewHolder.ivChild.setImageResource(R.drawable.kid2);
         }
 
+        childViewHolder.cvChild.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("onClick:clicked on",childAccList.get(position).getName());
+                Intent intent=new Intent(context,AccountChildPurchases.class);
+                intent.putExtra("childName",childAccList.get(position).getName());
+                intent.putExtra("childAccBalance",childAccList.get(position).getBalance());
+                intent.putExtra("childAccNo",childAccList.get(position).getAccountNo());
+                context.startActivity(intent);
+            }
+        });
 
-      /*  purchaseViewHolder.linearLayout.setVisility(View.GONE);
-
-        // if the position is equale to the item position that want to expand
-        if (currentPosition == position) {
-            // creating visibility
-            Animation slideDown = AnimationUtils.loadAnimation(context, R.anim.item_animation);
-            //toggling visbilty
-            purchaseViewHolder.linearLayout.setVisibility(View.VISIBLE);
-            //adding sliding effect
-            purchaseViewHolder.linearLayout.startAnimation(slideDown);
-        }*/
 
     }
+
+
     @Override
     public int getItemCount() {
         return childAccList.size();

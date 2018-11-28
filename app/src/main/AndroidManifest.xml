@@ -10,7 +10,8 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.Launcher">
+        android:theme="@style/AppTheme.Launcher.">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +31,8 @@
         <activity android:name=".AddChildAcount" />
         <activity android:name=".AddParentAccount" />
         <activity android:name=".Analytics" />
-        <activity android:name=".Fill"></activity>
+        <activity android:name=".Fill" />
+        <activity android:name=".AccountChildPurchases" />
     </application>
 
 </manifest>

@@ -15,12 +15,20 @@
         android:layout_height="250dp"
         tools:layout="@layout/fragment_top_home" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:text="Send money"
+        style="@style/tittle" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"
         android:background="@color/colorBackground"
         android:orientation="vertical"
         android:paddingLeft="16dp"

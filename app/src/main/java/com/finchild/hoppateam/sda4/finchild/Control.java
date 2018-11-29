@@ -1,12 +1,11 @@
 package com.finchild.hoppateam.sda4.finchild;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class Control extends AppCompatActivity {
 
@@ -20,7 +19,7 @@ public class Control extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
 
@@ -52,6 +51,8 @@ public class Control extends AppCompatActivity {
         if (view == btnAccountControl){
             // Create an Intent to start the AccountControl activity
             Intent accountControlIntent = new Intent(this, AccountControl.class);
+            String passChildName="Mitchel";
+            accountControlIntent.putExtra("childName",passChildName);
             // Start the activity.
             startActivity(accountControlIntent);
         }

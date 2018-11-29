@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             //closing this activitybtnSettings = (ImageView) findViewById(R.id.ivSettings);
             finish();
             //starting login activitybackBtn.setOnClickListener(this);
-            startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
         } else{
             userId = user.getUid();
         }

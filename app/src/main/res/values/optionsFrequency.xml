@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="frequency">
-        <item>Options</item>
+        <item>Once</item>
         <item>Daily</item>
         <item>Weekly</item>
         <item>Monthly</item>
@@ -9,7 +9,6 @@
     </string-array>
 
     <string-array name="weekdays">
-        <item>Options</item>
         <item>Monday</item>
         <item>Tuesday</item>
         <item>Wednesday</item>
@@ -17,11 +16,9 @@
         <item>Friday</item>
         <item>Saturday</item>
         <item>Sunday</item>
-
     </string-array>
 
     <string-array name="days">
-        <item>Options</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -52,11 +49,10 @@
         <item>28</item>
         <item>29</item>
         <item>30</item>
-
+        <item>31</item>
     </string-array>
 
     <string-array name="markets">
-        <item>Options</item>
         <item>ICA</item>
         <item>Coop</item>
         <item>Willis</item>

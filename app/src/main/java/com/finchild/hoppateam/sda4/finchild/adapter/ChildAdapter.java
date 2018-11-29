@@ -82,7 +82,6 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
         childViewHolder.cvChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("onClick:clicked on",childAccList.get(position).getName());
                 Intent intent=new Intent(context,AccountChildPurchases.class);
                 intent.putExtra("childName",childAccList.get(position).getName());
                 intent.putExtra("childAccBalance",childAccList.get(position).getBalance());

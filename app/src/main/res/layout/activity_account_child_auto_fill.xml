@@ -22,7 +22,7 @@
         android:layout_alignParentStart="true"
         android:gravity="center"
         android:text="Send money"
-        style="@style/tittle" />
+        style="@style/style_tittle" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -147,12 +147,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center_vertical|center_horizontal"
             android:text="Confirm"
-            android:textColor="@color/colorTextButton"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            style="@style/style_button" />
 
 
     </LinearLayout>

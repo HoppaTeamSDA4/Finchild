@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/tvChildPurchase"
-        style="@style/tittle"
+        style="@style/style_tittle"
         android:layout_width="243dp"
         android:layout_height="44dp"
         android:layout_marginEnd="200dp"
@@ -41,7 +41,7 @@
 
     <TextView
         android:id="@+id/tvBalancePurchase"
-        style="@style/tittle"
+        style="@style/style_tittle"
         android:layout_width="129dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"

@@ -18,7 +18,6 @@ public class Control extends ElementsBottomBarNav {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
 
         //initializing views

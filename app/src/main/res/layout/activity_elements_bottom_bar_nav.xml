@@ -9,7 +9,10 @@
     android:layout_height="wrap_content"
     android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
-    android:background="@color/colorPrimary"
+    app:itemBackground="@color/colorPrimary"
+    app:itemIconTint="@android:color/white"
+    app:itemTextColor="@android:color/white"
+    app:labelVisibilityMode="labeled"
     app:menu="@menu/nav_menu" />
 
 

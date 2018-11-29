@@ -26,7 +26,6 @@ public class AccountChildAutoFill extends ElementsBottomBarNav {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
 
         //initializing views

@@ -42,7 +42,6 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         Session session = new Session(AccountChildPurchases.this);
         if(session.getChildAccNo().equals("")||session.getChildAccNo()==null){

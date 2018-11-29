@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 public abstract class ElementsBottomBarNav extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
     private BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
 

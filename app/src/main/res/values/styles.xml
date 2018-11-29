@@ -28,7 +28,7 @@
     <style name="style_tittle">
         <item name="android:textSize">28sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorTextTitle</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
     <style name="style_button">

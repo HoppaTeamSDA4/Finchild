@@ -9,11 +9,23 @@ public class ChildAccount {
     private String mobileNumber;
     private double balance;
     private boolean status;
+    private double dailyLimitAmount;
+
+    public boolean isDailyLimit() {
+        return dailyLimit;
+    }
+
+    public void setDailyLimit(boolean dailyLimit) {
+        this.dailyLimit = dailyLimit;
+    }
+
+    private boolean dailyLimit;
+
 
     public ChildAccount() {
     }
 
-    public ChildAccount(String accountNo, String cardNumber, String name, String personalNumber, String mobileNumber,double balance, boolean status) {
+    public ChildAccount(String accountNo, String cardNumber, String name, String personalNumber, String mobileNumber,double balance, boolean status,double dailyLimitAmount,boolean dailyLimit) {
 
         this.accountNo = accountNo;
         this.cardNumber = cardNumber;
@@ -22,7 +34,12 @@ public class ChildAccount {
         this.mobileNumber = mobileNumber;
         this.balance=balance;
         this.status = status;
+        this.dailyLimit =dailyLimit;
+        this.dailyLimitAmount=dailyLimitAmount;
     }
+    public double getDailyLimitAmount() { return dailyLimitAmount; }
+
+    public void setDailyLimitAmount(double dailyLimitAmount) { this.dailyLimitAmount = dailyLimitAmount; }
 
     public String getAccountNo() {
         return accountNo;

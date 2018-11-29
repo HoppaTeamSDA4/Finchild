@@ -3,35 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/topHomeFrag"
+        android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        tools:layout="@layout/fragment_top_home" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:text="Control"
+        style="@style/style_tittle" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
         android:background="@color/colorBackground"
         android:orientation="vertical"
         tools:context=".Control">
-
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:onClick="onClick"
-            app:srcCompat="?attr/actionModeCloseDrawable" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="50dp"
-            android:text="Controls"
-            android:textColor="@color/colorTextTitle"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/btnSpendLimit"
@@ -40,9 +38,8 @@
             android:layout_gravity="center"
             android:onClick="onClick"
             android:text="Spending limits"
-            android:textColor="@color/colorTextButton"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            style="@style/style_button"
+            android:layout_margin="2dp"/>
 
         <Button
             android:id="@+id/btnAutofill"
@@ -51,9 +48,8 @@
             android:layout_gravity="center"
             android:onClick="onClick"
             android:text="Autofill"
-            android:textColor="@color/colorTextButton"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            style="@style/style_button"
+            android:layout_margin="2dp"/>
 
         <Button
             android:id="@+id/btnAccountControl"
@@ -62,9 +58,8 @@
             android:layout_gravity="center"
             android:onClick="onClick"
             android:text="Account control"
-            android:textColor="@color/colorTextButton"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            style="@style/style_button"
+            android:layout_margin="2dp"/>
 
         <Button
             android:id="@+id/btnAllowedMarkets"
@@ -73,9 +68,8 @@
             android:layout_gravity="center"
             android:onClick="onClick"
             android:text="Allowed markets"
-            android:textColor="@color/colorTextButton"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            style="@style/style_button"
+            android:layout_margin="2dp"/>
 
         <Button
             android:id="@+id/btnNotifications"
@@ -84,10 +78,8 @@
             android:layout_gravity="center"
             android:onClick="onClick"
             android:text="Notifications"
-            android:textColor="@color/colorTextButton"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
+            style="@style/style_button"
+            android:layout_margin="2dp"/>
 
     </LinearLayout>
 

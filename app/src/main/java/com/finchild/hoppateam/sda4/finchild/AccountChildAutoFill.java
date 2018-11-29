@@ -1,6 +1,7 @@
 package com.finchild.hoppateam.sda4.finchild;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,6 +14,11 @@ import android.widget.Spinner;
 import android.widget.Switch;
 
 import com.finchild.hoppateam.sda4.finchild.session.Session;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class AccountChildAutoFill extends ElementsBottomBarNav {
 
@@ -109,13 +115,38 @@ public class AccountChildAutoFill extends ElementsBottomBarNav {
     public void autoFillByType(View view) {
         String fillType = (String) frequencyAutofill.getSelectedItem();
         switch (fillType) {
-            case "once":
+            case "Once":
                 fillForOneTime();
         }
     }
 
     private void fillForOneTime() {
+        Session session=new Session(AccountChildAutoFill.this);
+        String childAcc=session.getChildAccNo();
+        String parentAcc=session.getParentAcc();
         Double amount = Double.parseDouble(amountView.getText().toString());
+        DatabaseReference childAccRef= FirebaseDatabase.getInstance().getReference().child("child").child(parentAcc);
+        childAccRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                double fillAmount=Double.parseDouble(amountView.getText().toString());
+                for(DataSnapshot childAccSnapshot:dataSnapshot.getChildren()){
+                    if(childAccSnapshot.child("accountNo").getValue().toString().equals(childAcc)){
+                        double currentAmount=Double.parseDouble(childAccSnapshot.child("balance").getValue().toString());
+                        double totalAmount=fillAmount+currentAmount;
+                        childAccRef.child(childAccSnapshot.getKey()).child("balance").setValue(totalAmount);
+                        break;
+                    }
+                }
+                finish();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         
     }
 

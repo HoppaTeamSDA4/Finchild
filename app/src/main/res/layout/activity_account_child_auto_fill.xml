@@ -15,6 +15,35 @@
         android:layout_height="250dp"
         tools:layout="@layout/fragment_top_home" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        app:layout_constraintBottom_toBottomOf="@+id/topHomeFrag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/common_google_signin_btn_text_light_default"
+        />
+
+    <TextView
+        android:id="@+id/tvChildPAutoFill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_marginBottom="8dp"
+        android:text="Autofill"
+        android:textAlignment="center"
+        android:textColor="@color/colorTextButton"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/topHomeFrag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topHomeFrag" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -141,6 +170,7 @@
             android:layout_marginBottom="5dp"
             android:background="@color/colorPrimary"
             android:gravity="center_vertical|center_horizontal"
+            android:onClick="autoFillByType"
             android:text="Confirm"
             android:textColor="@color/colorTextButton"
             android:textSize="18sp"

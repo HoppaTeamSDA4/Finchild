@@ -20,6 +20,7 @@ public class Analytics extends ElementsBottomBarNav {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
 
 

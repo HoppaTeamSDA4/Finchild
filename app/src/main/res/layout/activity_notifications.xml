@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
-    android:background="@color/colorBackground"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    tools:context=".Notifications">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/topHomeFrag"
+        android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        tools:layout="@layout/fragment_top_home" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:text="Notifications"
+        style="@style/style_tittle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        tools:context=".Notifications">
 
     <ImageView
         android:id="@+id/btnBack"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         app:srcCompat="?attr/actionModeCloseDrawable"
         android:onClick="onClick"/>
-
-    <TextView
-        android:layout_width="349dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Notifications"
-        android:textColor="@color/colorTextTitle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="60dp"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="254dp"
@@ -168,3 +175,5 @@
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
+
+</RelativeLayout>

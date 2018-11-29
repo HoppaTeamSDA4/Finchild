@@ -34,13 +34,10 @@ public class AccountControl extends AppCompatActivity {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_control);
-        Intent intent = getIntent();
-        final String childName = intent.getStringExtra("childName");
         //initializing views
         btnBack = (ImageView) findViewById(R.id.btnBack);
         switchDisable = (Switch) findViewById(R.id.switchDisableAccount);
         confirmDeleteButton = (Button) findViewById(R.id.confirmDeleteAccount);
-
         final Session session = new Session(AccountControl.this);
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final DatabaseReference accountRef = FirebaseDatabase.getInstance().getReference().child("child").child(session.getParentAcc());
@@ -49,7 +46,7 @@ public class AccountControl extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot accountShot : dataSnapshot.getChildren()) {
                     if (dataSnapshot.hasChildren()) {
-                        if (accountShot.child("name").getValue().toString().equals(childName)) {
+                        if (accountShot.child("name").getValue().toString().equals(session.getChildName())) {
                             String status = accountShot.child("status").getValue().toString().trim();
                             switchDisable.setChecked(Boolean.valueOf(status));
                         }
@@ -75,7 +72,7 @@ public class AccountControl extends AppCompatActivity {
 
                         for (DataSnapshot accountShot : dataSnapshot.getChildren()) {
                             if (dataSnapshot.hasChildren()) {
-                                if (accountShot.child("name").getValue().toString().equals(childName)) {
+                                if (accountShot.child("name").getValue().toString().equals(session.getChildName())) {
                                     String childAccounKey = accountShot.getKey();
                                     accountRef.child(childAccounKey).child("status").setValue(switchDisable.isChecked());
                                     if (!switchDisable.isChecked())
@@ -110,10 +107,13 @@ public class AccountControl extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot accountShot : dataSnapshot.getChildren()) {
-                                    if (accountShot.child("name").getValue().toString().equals(childName)) {
+                                    if (accountShot.child("name").getValue().toString().equals(session.getChildName())) {
                                         String childAccounKey = accountShot.getKey();
                                         accountRef.child(childAccounKey).removeValue();
-
+                                        finish();
+                                        Intent intent = new Intent(AccountControl.this,HomeActivity.class);
+                                        // Start the activity.
+                                        startActivity(intent);
                                     }
                                 }
                             }

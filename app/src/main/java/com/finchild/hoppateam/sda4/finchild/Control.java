@@ -2,7 +2,6 @@ package com.finchild.hoppateam.sda4.finchild;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -60,8 +59,6 @@ public class Control extends ElementsBottomBarNav {
         if (view == btnAccountControl){
             // Create an Intent to start the AccountControl activity
             Intent accountControlIntent = new Intent(this, AccountControl.class);
-            String passChildName="Mitchel";
-            accountControlIntent.putExtra("childName",passChildName);
             // Start the activity.
             startActivity(accountControlIntent);
         }

@@ -12,7 +12,7 @@ import android.widget.Spinner;
 public class AllowedMarkets extends AppCompatActivity {
 
     //view objects
-    private ImageView btnBack;
+    private ImageView backBtn;
     private Spinner markets;
     private Button btnShowMap;
     private Button btnShowList;
@@ -25,11 +25,22 @@ public class AllowedMarkets extends AppCompatActivity {
         setContentView(R.layout.activity_allowed_markets);
 
         //initializing views
-        btnBack = (ImageView) findViewById(R.id.btnBack);
         markets = (Spinner) findViewById(R.id.spinnerMarket);
         btnShowMap = (Button) findViewById(R.id.btnShowMap);
         btnShowList = (Button) findViewById(R.id.btnShowList);
         image = (ImageView) findViewById(R.id.imageView1);
+
+        backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
 
         //Create adapter to market spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
@@ -39,13 +50,6 @@ public class AllowedMarkets extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        //if btnBack is pressed
-        if (view == btnBack) {
-            // Create an Intent to start the Control activity
-            Intent backIntent = new Intent(this, Control.class);
-            // Start the activity.
-            startActivity(backIntent);
-        }
         //if btnShowList is pressed
         if (view == btnShowList) {
             //Show a logo image
@@ -56,5 +60,12 @@ public class AllowedMarkets extends AppCompatActivity {
             //Show a map
             image.setImageResource(R.drawable.mapmarkets);
         }
+    }
+
+    private void goAccount() {
+        // Create an Intent to start the Control activity
+        Intent intent = new Intent(this, Control.class);
+        // Start the activity.
+        startActivity(intent);
     }
 }

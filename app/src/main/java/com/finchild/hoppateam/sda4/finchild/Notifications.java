@@ -9,7 +9,7 @@ import android.widget.ImageView;
 public class Notifications extends AppCompatActivity {
 
     //view objects
-    private ImageView btnBack;
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,17 +17,24 @@ public class Notifications extends AppCompatActivity {
         setContentView(R.layout.activity_notifications);
 
         //initializing views
-        btnBack = (ImageView) findViewById(R.id.btnBack);
+        backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
 
     }
 
-    public void onClick(View view) {
-        //if btnBack is pressed
-        if (view == btnBack){
-            // Create an Intent to start the Control activity
-            Intent backIntent = new Intent(this, Control.class);
-            // Start the activity.
-            startActivity(backIntent);
-        }
+    private void goAccount() {
+        // Create an Intent to start the Control activity
+        Intent intent = new Intent(this, Control.class);
+        // Start the activity.
+        startActivity(intent);
     }
 }

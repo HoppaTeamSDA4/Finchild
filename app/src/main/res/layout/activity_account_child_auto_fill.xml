@@ -15,12 +15,33 @@
         android:layout_height="250dp"
         tools:layout="@layout/fragment_top_home" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/common_google_signin_btn_text_light_default" />
+
+    <TextView
+        style="@style/style_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center"
+        android:text="Send money"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"
         android:background="@color/colorBackground"
         android:orientation="vertical"
         android:paddingLeft="16dp"
@@ -139,12 +160,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center_vertical|center_horizontal"
             android:text="Confirm"
-            android:textColor="@color/colorTextButton"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            style="@style/style_button" />
 
 
     </LinearLayout>

@@ -20,6 +20,28 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_top_home" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/common_google_signin_btn_text_light_default" />
+
+    <TextView
+        style="@style/style_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:text="Add child"
+        app:layout_constraintBottom_toBottomOf="@+id/topHomeFrag"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 
     <EditText
         android:id="@+id/childName"
@@ -90,13 +112,12 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
         android:text="Confirm"
-        android:textColor="@color/colorTextButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/childMobile" />
+        app:layout_constraintTop_toBottomOf="@+id/childMobile"
+        style="@style/style_button"/>
 
     <EditText
         android:id="@+id/childMobile"
@@ -110,4 +131,5 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/childPersonalNo" />
+
 </android.support.constraint.ConstraintLayout>

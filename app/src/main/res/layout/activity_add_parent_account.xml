@@ -18,6 +18,28 @@
         tools:layout="@layout/fragment_top_home" />
 
     <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/common_google_signin_btn_text_light_default" />
+
+    <TextView
+        style="@style/style_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:text="Add parent account"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="341dp"
         android:layout_height="152dp"
@@ -117,9 +139,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="20dp"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -134,13 +153,12 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimary"
         android:text="Delete Account"
-        android:textColor="@color/colorTextButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNo"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintVertical_bias="0.24"
+        style="@style/style_button"/>
 
 </android.support.constraint.ConstraintLayout>

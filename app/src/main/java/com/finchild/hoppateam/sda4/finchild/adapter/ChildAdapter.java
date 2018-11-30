@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +78,6 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
         childViewHolder.cvChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("onClick:clicked on",childAccList.get(position).getName());
                 Intent intent=new Intent(context,AccountChildPurchases.class);
                 intent.putExtra("childName",childAccList.get(position).getName());
                 intent.putExtra("childAccBalance",childAccList.get(position).getBalance());

@@ -7,10 +7,10 @@
     tools:context=".AccountChildPurchases">
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/homeFragment"
         android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="250dp"
         tools:layout="@layout/fragment_top_home" />
 
     <ImageView
@@ -18,7 +18,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="200dp"
-        app:layout_constraintBottom_toBottomOf="@id/fragment"
+        app:layout_constraintBottom_toBottomOf="@+id/homeFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -60,35 +60,26 @@
         layout="@layout/purchase_list_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/main_nav"
+
+
+
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView3" />
 
 
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/main_nav"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+
+    <include
+        android:id="@+id/navigation"
+        layout="@layout/activity_elements_bottom_bar_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        android:padding="0dp"
-        app:itemBackground="@color/colorPrimary"
-        app:itemIconTint="@color/nav_color"
-        app:itemTextColor="@color/nav_color"
-        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include"
-        app:menu="@menu/nav_menu">
-
-    </android.support.design.widget.BottomNavigationView>
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,14 +1,12 @@
 package com.finchild.hoppateam.sda4.finchild;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-public class Control extends AppCompatActivity {
+public class Control extends ElementsBottomBarNav {
 
     //view objects
     private Button btnSpendLimit;
@@ -20,9 +18,8 @@ public class Control extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_control);
 
         //initializing views
         btnSpendLimit = (Button) findViewById(R.id.btnSpendLimit);
@@ -31,6 +28,16 @@ public class Control extends AppCompatActivity {
         btnAllowedMarkets = (Button) findViewById(R.id.btnAllowedMarkets);
         btnNotifications = (Button) findViewById(R.id.btnNotifications);
         btnBack = (ImageView) findViewById(R.id.btnBack);
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_control;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.nav_control;
     }
 
     public void onClick(View view) {
@@ -43,8 +50,8 @@ public class Control extends AppCompatActivity {
         }
         //if btnAutofill is pressed
         if (view == btnAutofill){
-            // Create an Intent to start the Autofill activity
-            Intent autofillIntent = new Intent(this, Autofill.class);
+            // Create an Intent to start the AccountChildAutoFill activity
+            Intent autofillIntent = new Intent(this, AccountChildAutoFill.class);
             // Start the activity.
             startActivity(autofillIntent);
         }

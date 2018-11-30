@@ -5,14 +5,26 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
+
+import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+
+import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,22 +43,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AccountChildPurchases extends AppCompatActivity {
+public class AccountChildPurchases extends ElementsBottomBarNav  {
 
     private ImageView backBtn;
     private TextView tvChildPurchase, tvBalancePurchase;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter adapter;
     private List<Expense> expenseList = new ArrayList<>();
+
     private List<Item> itemsList=new ArrayList<>();
     private final String CHANNEL_ID="personal Notification";
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_child_purchases);
         Session session = new Session(AccountChildPurchases.this);
+        if(session.getChildAccNo().equals("")||session.getChildAccNo()==null){
+            session.setChildAccNo(getIntent().getStringExtra("childAccNo"));
+        }
+        if(session.getChildAccBalance().equals("")||session.getChildAccBalance()==null){
+            session.setChildAccBalance(Double.toString(getIntent().getDoubleExtra("childAccBalance", 0.0)));
+        }
+
+        if(session.getChildName().equals("")||session.getChildName()==null){
+            session.setChildName(getIntent().getStringExtra("childName"));
+        }
+
         System.out.println(session.getParentAcc());
 
         tvChildPurchase = (TextView) findViewById(R.id.tvChildPurchase);
@@ -57,8 +83,8 @@ public class AccountChildPurchases extends AppCompatActivity {
 
 
         //pass here name from the home activity the name and the balance of the child
-        tvChildPurchase.setText(getIntent().getStringExtra("childName"));
-        tvBalancePurchase.setText(Double.toString(getIntent().getDoubleExtra("childAccBalance", 50.0)));
+        tvChildPurchase.setText(session.getChildName());
+        tvBalancePurchase.setText(session.getChildAccBalance());
 
 
         //Create recycler view
@@ -73,13 +99,24 @@ public class AccountChildPurchases extends AppCompatActivity {
 
     }
 
+    @Override
+    int getContentViewId() {
+        return R.layout.account_child_purchases;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.nav_account;
+    }
+
     // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData() {
-        ArrayList<Expense> expenses = new ArrayList<>();
+
         ArrayList<Item> hemkopsItemps = new ArrayList<>();
         Session session = new Session(AccountChildPurchases.this);
-        String parentAcc = session.getParentAcc();
-        String childAcc = getIntent().getStringExtra("childAccNo");
+
+
+       // String childAcc = getIntent().getStringExtra("childAccNo");
         //Getting the spending limits of child from childAdapter
        String dailylimit=session.getChildDailyLimit();
        final double dailylimitAmount=Double.parseDouble(dailylimit);
@@ -88,6 +125,9 @@ public class AccountChildPurchases extends AppCompatActivity {
        System.out.println(dailylimitAmount);
        // boolean dailyLimitStatus=getIntent().getExtras().getBoolean("childAccDailyLimitStat");
       //  final String childName=getIntent().getStringExtra("childName");
+
+        String childAcc = session.getChildAccNo();
+
         DatabaseReference childAccRef = FirebaseDatabase.getInstance().getReference().child("expenses").child(childAcc);
         childAccRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -96,24 +136,24 @@ public class AccountChildPurchases extends AppCompatActivity {
                 expenseList.clear();
                 for (DataSnapshot expenseSnapshot : dataSnapshot.getChildren()) {
                     String expenseId = expenseSnapshot.getKey();
-                    String expenseStore=expenseSnapshot.child("store").getValue().toString();
-                    String expenseDate=expenseSnapshot.child("date").getValue().toString();
-                    Double expenseTotalAmount=Double.parseDouble(expenseSnapshot.child("totalAmount").getValue().toString());
-                    for(DataSnapshot itemsSnapShot: expenseSnapshot.child("items").getChildren()) {
-                        String itemName= itemsSnapShot.child("name").getValue().toString();
+                    String expenseStore = expenseSnapshot.child("store").getValue().toString();
+                    String expenseDate = expenseSnapshot.child("date").getValue().toString();
+                    Double expenseTotalAmount = Double.parseDouble(expenseSnapshot.child("totalAmount").getValue().toString());
+                    for (DataSnapshot itemsSnapShot : expenseSnapshot.child("items").getChildren()) {
+                        String itemName = itemsSnapShot.child("name").getValue().toString();
                         String itemcategory = itemsSnapShot.child("category").getValue().toString();
                         Double itemQuantity = Double.parseDouble(itemsSnapShot.child("quantity").getValue().toString());
                         Double itemPrice = Double.parseDouble(itemsSnapShot.child("price").getValue().toString());
-                        itemsList.add(new Item(itemcategory,itemName,itemQuantity,itemPrice));
+                        itemsList.add(new Item(itemcategory, itemName, itemQuantity, itemPrice));
                     }
                     if(expenseTotalAmount>dailylimitAmount){
                         Log.d("condition for expenses","####################################");
-                        createNotificationChannel(childName);
+                        createNotificationChannel(childName,dailylimitAmount);
                     }
 
-                   expenseList.add(new Expense(expenseId,expenseStore,expenseDate,expenseTotalAmount,itemsList));
-                   ItemAdapter adapter = new ItemAdapter(expenseList);
-                   mRecyclerView.setAdapter(adapter);
+                    expenseList.add(new Expense(expenseId, expenseStore, expenseDate, expenseTotalAmount, itemsList));
+                    ItemAdapter adapter = new ItemAdapter(expenseList);
+                    mRecyclerView.setAdapter(adapter);
                 }
             }
 
@@ -124,7 +164,7 @@ public class AccountChildPurchases extends AppCompatActivity {
         });
 
     }
-    public void createNotificationChannel(String childName) {
+    public void createNotificationChannel(String childName, double dailyLimit) {
         Toast.makeText(getApplicationContext(),"Inside create Channel",Toast.LENGTH_SHORT).show();
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -140,9 +180,7 @@ public class AccountChildPurchases extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
             //  sendNotification();
 
-
-
-            Intent resultIntent= new Intent(getApplicationContext(),AccountChildPurchases.class);
+          Intent resultIntent= new Intent(getApplicationContext(),AccountChildPurchases.class);
 
             PendingIntent resultPendingIntent=PendingIntent.getActivity(getApplicationContext(),2,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -150,7 +188,7 @@ public class AccountChildPurchases extends AppCompatActivity {
 
             builder.setSmallIcon(R.drawable.childaccount)
                     .setContentTitle("Child Purchase")
-                    .setContentText(childName +" has exceeded the limit of 1000 for this week")
+                    .setContentText(childName +" has exceeded the limit of "+dailyLimit+ " for today")
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setAutoCancel(true)
                     .setContentIntent(resultPendingIntent);

@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-public class Analytics extends AppCompatActivity {
+public class Analytics extends ElementsBottomBarNav {
 
     //view objects
     private Spinner period;
@@ -20,8 +20,8 @@ public class Analytics extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_analytics);
 
 
         //initializing views
@@ -41,6 +41,16 @@ public class Analytics extends AppCompatActivity {
         //initialize spinner
         typeData.setAdapter(typeDataAdapter);
 
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_analytics;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.nav_analytics;
     }
 
     public void onRadioButtonClicked(View view) {

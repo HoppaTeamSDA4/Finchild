@@ -11,6 +11,15 @@ public class ChildAccount {
     private boolean status;
     private double dailyLimitAmount;
 
+    public boolean isExceedLimitNotify() {
+        return exceedLimitNotify;
+    }
+
+    public void setExceedLimitNotify(boolean exceedLimitNotify) {
+        this.exceedLimitNotify = exceedLimitNotify;
+    }
+
+    private boolean exceedLimitNotify;
     public boolean isDailyLimit() {
         return dailyLimit;
     }
@@ -25,7 +34,8 @@ public class ChildAccount {
     public ChildAccount() {
     }
 
-    public ChildAccount(String accountNo, String cardNumber, String name, String personalNumber, String mobileNumber,double balance, boolean status,double dailyLimitAmount,boolean dailyLimit) {
+    public ChildAccount(String accountNo, String cardNumber, String name, String personalNumber, String mobileNumber,double balance, boolean status,double dailyLimitAmount,boolean dailyLimit
+    ,boolean exceedLimitNotify) {
 
         this.accountNo = accountNo;
         this.cardNumber = cardNumber;
@@ -36,6 +46,7 @@ public class ChildAccount {
         this.status = status;
         this.dailyLimit =dailyLimit;
         this.dailyLimitAmount=dailyLimitAmount;
+        this.exceedLimitNotify=exceedLimitNotify;
     }
     public double getDailyLimitAmount() { return dailyLimitAmount; }
 

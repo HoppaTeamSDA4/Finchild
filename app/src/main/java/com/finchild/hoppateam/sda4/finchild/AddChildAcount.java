@@ -98,7 +98,8 @@ public class AddChildAcount extends AppCompatActivity {
                     return;
                 }
 
-                ChildAccount newChildAcc= new ChildAccount(childAccNo,childCardNo,childName,childPersonalNo,childMobile,0.00,true,0,false);
+                ChildAccount newChildAcc= new ChildAccount(childAccNo,childCardNo,childName,childPersonalNo,childMobile,0.00,
+                        true,0,false,false);
                 childAccRef.child(parentAcc).push().setValue(newChildAcc);
 
 

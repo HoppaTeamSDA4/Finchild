@@ -81,11 +81,18 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
                 Intent intent=new Intent(context,AccountChildPurchases.class);
                 intent.putExtra("childName",childAccList.get(position).getName());
                 intent.putExtra("childAccBalance",childAccList.get(position).getBalance());
-               // intent.putExtra("childAccDailyLimit",);
-                intent.putExtra("childAccDailyLimitStat",childAccList.get(position).isDailyLimit());
                 intent.putExtra("childAccNo",childAccList.get(position).getAccountNo());
                 Session session = new Session(context);
-                session.setChildDailyLimit(Double.toString(childAccList.get(position).getDailyLimitAmount()));
+
+                session.setChildDailyLimitAmount(Double.toString(childAccList.get(position).getDailyLimitAmount()));
+                session.setChildDailyLimitStat(Boolean.toString(childAccList.get(position).isDailyLimit()));
+
+                session.setChildWeeklyLimitAmount(Double.toString(childAccList.get(position).getWeeklyLimitAmount()));
+                session.setChildWeeklyStat(Boolean.toString(childAccList.get(position).isWeeklyLimit()));
+
+                session.setChildMonthlyLimitAmount(Double.toString(childAccList.get(position).getMonthlyLimitAmount()));
+                session.setChildMonthlyyLimitStat(Boolean.toString(childAccList.get(position).isMonthlyLimit()));
+
                 session.setChildName(childAccList.get(position).getName());
                 context.startActivity(intent);
             }

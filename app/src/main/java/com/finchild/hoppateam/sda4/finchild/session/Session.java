@@ -50,17 +50,61 @@ public class Session {
         return childName;
     }
 
-    public void setChildDailyLimit(String dailyLimit) {
-        prefs.edit().putString("dailyLimit", dailyLimit).commit();
+    public void setChildDailyLimitAmount(String dailyLimit) {
+        prefs.edit().putString("dailyLimitAmount", dailyLimit).commit();
     }
 
-    public String getChildDailyLimit() {
-        String dailyLimit = prefs.getString("dailyLimit", "");
+    public String getChildDailyLimitAmount() {
+        String dailyLimit = prefs.getString("dailyLimitAmount", "");
         return dailyLimit;
+    }
+    public void setChildWeeklyLimitAmount(String weeklyLimit) {
+        prefs.edit().putString("weeklyLimitAmount", weeklyLimit).commit();
+    }
+    public String getChildWeeklyLimitAmount() {
+        String weeklyLimit = prefs.getString("weeklyLimitAmount", "");
+        return weeklyLimit;
+    }
+
+    public String getChildMonthlyLimitAmount() {
+        String monthlyLimit = prefs.getString("monthlyLimitAmount", "");
+        return monthlyLimit;
+    }
+    public void setChildMonthlyLimitAmount(String monthlyLimit) {
+        prefs.edit().putString("monthlyLimitAmount", monthlyLimit).commit();
     }
 
     public void clear(){
         prefs.edit().clear().commit();
 
     }
+
+    public void setChildWeeklyStat(String s) {
+        prefs.edit().putString("weeklyLimitStat", "weeklyLimitStat").commit();
+    }
+
+    public void setChildDailyLimitStat(String s) {
+        prefs.edit().putString("dailyLimitStat", "dailyLimitStat").commit();
+    }
+
+    public void setChildMonthlyyLimitStat(String s) {
+        prefs.edit().putString("monthlyimitStat", "monthlyLimitStat").commit();
+    }
+
+    public String getChildWeeklyLimitStat() {
+        String weeklyStat = prefs.getString("weeklyLimitStat", "");
+        return weeklyStat;
+    }
+
+    public String getChildMonthlyLimitStat() {
+        String monthlyStat = prefs.getString("monthlyLimitStat", "");
+        return monthlyStat;
+    }
+
+    public String getChildDailyLimitStat() {
+        String dailyStat = prefs.getString("dailyLimitStat", "");
+        return dailyStat;
+    }
+
+
 }

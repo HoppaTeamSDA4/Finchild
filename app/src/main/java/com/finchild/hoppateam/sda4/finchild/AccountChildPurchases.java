@@ -5,26 +5,13 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
-
-import android.content.Intent;
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
-
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -118,7 +105,7 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
 
        // String childAcc = getIntent().getStringExtra("childAccNo");
         //Getting the spending limits of child from childAdapter
-       String dailylimit=session.getChildDailyLimit();
+       String dailylimit=session.getChildDailyLimitAmount();
        final double dailylimitAmount=Double.parseDouble(dailylimit);
         final String childName =session.getChildName();
       //  final double dailylimitAmount = Double.parseDouble(getIntent().getStringExtra("childAccDailyLimit"));

@@ -53,9 +53,9 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
 
         tvChildPurchase = (TextView) findViewById(R.id.tvChildPurchase);
         tvBalancePurchase = (TextView) findViewById(R.id.tvBalancePurchase);
-        //backBtn = (ImageView) findViewById(R.id.ivBack);
+        backBtn = (ImageView) findViewById(R.id.ivBack);
         // to set the back button instead of the logout
-        //backBtn.setImageResource(R.drawable.back_button);
+        backBtn.setImageResource(R.drawable.back_button);
 
 
         //pass here name from the home activity the name and the balance of the child

@@ -4,146 +4,146 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
-    android:background="@color/colorBackground"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    tools:context=".Analytics">
 
-
-    <TextView
-        android:layout_width="349dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Analytics"
-        android:textColor="@color/colorTextTitle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp" />
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="300dp"
-        android:layout_height="46dp"
-        android:layout_gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:text="Period:"
-            android:textColor="@color/colorText"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Spinner
-            android:id="@+id/spinnerPeriod"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="300dp"
-        android:layout_height="46dp"
-        android:layout_gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:text="Category:"
-            android:textColor="@color/colorText"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Spinner
-            android:id="@+id/spinnerTypeData"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-    </android.support.constraint.ConstraintLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Graphic type:"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="10dp"
-        android:paddingLeft="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp">
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        tools:context=".Analytics">
 
-        <RadioButton android:id="@+id/radioRowChart"
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Analytics"
+            android:textColor="@color/colorText"
+            style="@style/style_tittle"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="Period:"
+                android:textColor="@color/colorText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinnerPeriod"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="Category:"
+                android:textColor="@color/colorText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinnerTypeData"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Row chart"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_margin="3dp"
-            android:onClick="onRadioButtonClicked"/>
-
-        <RadioButton android:id="@+id/radioLineChart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Line chart"
-            android:textSize="16sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="Graphic type:"
+            android:textColor="@color/colorText"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
-            android:layout_margin="3dp"
-            android:onClick="onRadioButtonClicked"/>
+            android:paddingLeft="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/radioPieChart"
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center">
+
+            <RadioButton android:id="@+id/radioRowChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Row chart"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_margin="3dp"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton android:id="@+id/radioLineChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Line chart"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:layout_margin="3dp"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/radioPieChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pie chart"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:layout_margin="3dp"
+                android:onClick="onRadioButtonClicked"
+                android:checked = "true"/>
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/imageDataGraphic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pie chart"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            android:layout_margin="3dp"
-            android:onClick="onRadioButtonClicked"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/piechart"/>
 
-    </RadioGroup>
-
-    <ImageView
-        android:id="@+id/imageDataGraphic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-</LinearLayout>
+    </LinearLayout>
 
     <include
         layout="@layout/activity_elements_bottom_bar_nav"

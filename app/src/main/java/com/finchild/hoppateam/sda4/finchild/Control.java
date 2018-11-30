@@ -14,7 +14,7 @@ public class Control extends ElementsBottomBarNav {
     private Button btnAccountControl;
     private Button btnAllowedMarkets;
     private Button btnNotifications;
-    private ImageView btnBack;
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,19 @@ public class Control extends ElementsBottomBarNav {
         btnAccountControl = (Button) findViewById(R.id.btnAccountControl);
         btnAllowedMarkets = (Button) findViewById(R.id.btnAllowedMarkets);
         btnNotifications = (Button) findViewById(R.id.btnNotifications);
-        btnBack = (ImageView) findViewById(R.id.btnBack);
+
+        backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
+
     }
 
     @Override
@@ -76,12 +88,12 @@ public class Control extends ElementsBottomBarNav {
             // Start the activity.
             startActivity(notificationsIntent);
         }
-        //if btnBack is pressed
-        if (view == btnBack){
-            // Create an Intent to start the ProfileActivity activity
-            Intent profileActivityIntent = new Intent(this, HomeActivity.class);
-            // Start the activity.
-            startActivity(profileActivityIntent);
-        }
+    }
+
+    private void goAccount() {
+        // Create an Intent to start the AccountChildPurchases activity
+        Intent intent = new Intent(this, AccountChildPurchases.class);
+        // Start the activity.
+        startActivity(intent);
     }
 }

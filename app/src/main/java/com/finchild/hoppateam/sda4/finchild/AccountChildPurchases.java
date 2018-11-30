@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,8 +62,17 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
         tvChildPurchase = (TextView) findViewById(R.id.tvChildPurchase);
         tvBalancePurchase = (TextView) findViewById(R.id.tvBalancePurchase);
         backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        });
+
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
+
 
 
         //pass here name from the home activity the name and the balance of the child
@@ -130,6 +140,13 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
             }
         });
 
+    }
+
+    private void goHome() {
+        // Create an Intent to start the Home activity
+        Intent intent = new Intent(this, HomeActivity.class);
+        // Start the activity.
+        startActivity(intent);
     }
 
 }

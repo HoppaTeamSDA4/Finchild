@@ -78,8 +78,8 @@ public class ChildSpendLimit extends AppCompatActivity {
                                     Toast.makeText(ChildSpendLimit.this, "Please enter the amount", Toast.LENGTH_LONG).show();
                                     return;
                                 }
-                                accountRef.child(childAccounKey).child("limitAmount").setValue(limitAmount);
-                                accountRef.child(childAccounKey).child("limitType").setValue(limitType);
+                                //accountRef.child(childAccounKey).child("limitAmount").setValue(limitAmount);
+                                //accountRef.child(childAccounKey).child("limitType").setValue(limitType);
                             }
                         }
                     }
@@ -105,5 +105,23 @@ public class ChildSpendLimit extends AppCompatActivity {
 
     }
 
+    public String selectSwitchLimit(String limitType){
 
+        String limitField=null;
+        switch(limitType){
+            case "Daily":
+                limitField="dailyLimit";
+                break;
+            case"weekly":
+                limitField="weeklyLimit";
+                break;
+            case"Monthly":
+                limitField="monthlyLimit";
+                break;
+            default:
+                break;
+        }
+
+        return limitField;
+    }
 }

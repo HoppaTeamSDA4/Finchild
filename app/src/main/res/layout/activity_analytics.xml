@@ -13,16 +13,32 @@
         tools:context=".Analytics">
 
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Analytics"
-            android:textColor="@color/colorText"
-            style="@style/style_tittle"
-            android:padding="10dp"
-            android:layout_marginBottom="10dp" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_margin="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="?android:attr/actionModeCloseDrawable"
+                android:onClick="onClick"/>
+
+            <TextView
+                style="@style/style_tittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Analytics"
+                android:textColor="@color/colorText" />
+
+        </LinearLayout>
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="300dp"

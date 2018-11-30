@@ -1,24 +1,20 @@
 package com.finchild.hoppateam.sda4.finchild.adapter;
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.finchild.hoppateam.sda4.finchild.AccountChildPurchases;
 import com.finchild.hoppateam.sda4.finchild.R;
 import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
-import com.finchild.hoppateam.sda4.finchild.modules.ChildDetails;
+import com.finchild.hoppateam.sda4.finchild.session.Session;
 
 import java.util.List;
 
@@ -86,6 +82,18 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
                 intent.putExtra("childName",childAccList.get(position).getName());
                 intent.putExtra("childAccBalance",childAccList.get(position).getBalance());
                 intent.putExtra("childAccNo",childAccList.get(position).getAccountNo());
+                Session session = new Session(context);
+
+                session.setChildDailyLimitAmount(Double.toString(childAccList.get(position).getDailyLimitAmount()));
+                session.setChildDailyLimitStat(Boolean.toString(childAccList.get(position).isDailyLimit()));
+
+                session.setChildWeeklyLimitAmount(Double.toString(childAccList.get(position).getWeeklyLimitAmount()));
+                session.setChildWeeklyStat(Boolean.toString(childAccList.get(position).isWeeklyLimit()));
+
+                session.setChildMonthlyLimitAmount(Double.toString(childAccList.get(position).getMonthlyLimitAmount()));
+                session.setChildMonthlyyLimitStat(Boolean.toString(childAccList.get(position).isMonthlyLimit()));
+
+                session.setChildName(childAccList.get(position).getName());
                 context.startActivity(intent);
             }
         });

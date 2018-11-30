@@ -1,7 +1,5 @@
 package com.finchild.hoppateam.sda4.finchild;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,9 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Switch;
-
-import com.finchild.hoppateam.sda4.finchild.session.Session;
 
 public class AccountChildAutoFill extends ElementsBottomBarNav {
 

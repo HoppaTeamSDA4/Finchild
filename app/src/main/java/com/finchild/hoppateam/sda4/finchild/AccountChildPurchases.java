@@ -1,24 +1,17 @@
 package com.finchild.hoppateam.sda4.finchild;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.finchild.hoppateam.sda4.finchild.adapter.ItemAdapter;
-import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
 import com.finchild.hoppateam.sda4.finchild.modules.Expense;
 import com.finchild.hoppateam.sda4.finchild.modules.Item;
 import com.finchild.hoppateam.sda4.finchild.session.Session;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

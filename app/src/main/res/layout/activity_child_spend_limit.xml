@@ -26,6 +26,7 @@
         android:layout_marginTop="10dp"
         android:text="Children spending limit"
         android:textColor="@color/colorTextTitle"
+        android:gravity="center"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
@@ -113,10 +114,12 @@
 
 
     <Button
+        android:id="@+id/confirm"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Confirm"
         android:textColor="@color/colorTextButton"
+        android:background="@color/colorPrimary"
         android:textSize="14sp"
         android:textStyle="bold"
         android:layout_margin="10dp"

@@ -66,7 +66,7 @@ public class AccountControl extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
 
-                accountRef.addValueEventListener(new ValueEventListener() {
+                accountRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

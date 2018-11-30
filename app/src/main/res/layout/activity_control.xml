@@ -25,13 +25,18 @@
         app:srcCompat="@color/common_google_signin_btn_text_light_default" />
 
     <TextView
+        style="@style/style_tittle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/topHomeFrag"
-        android:layout_alignParentStart="true"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignEnd="@+id/imageView3"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="315dp"
         android:gravity="center"
-        android:text="Control"
-        style="@style/style_tittle" />
+        android:text="Control" />
 
     <LinearLayout
         android:layout_width="match_parent"

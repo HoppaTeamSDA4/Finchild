@@ -11,15 +11,10 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-import android.view.MenuItem;
-import android.view.View;
-
 import android.util.Log;
-
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.finchild.hoppateam.sda4.finchild.adapter.ItemAdapter;
 import com.finchild.hoppateam.sda4.finchild.modules.Expense;
@@ -31,7 +26,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -130,12 +128,14 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
         String childAcc = session.getChildAccNo();
 
         DatabaseReference childAccRef = FirebaseDatabase.getInstance().getReference().child("expenses").child(childAcc);
+
         childAccRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 itemsList.clear();
                 expenseList.clear();
                 for (DataSnapshot expenseSnapshot : dataSnapshot.getChildren()) {
+                    itemsList=new ArrayList<>();
                     String expenseId = expenseSnapshot.getKey();
                     String expenseStore = expenseSnapshot.child("store").getValue().toString();
                     String expenseDate = expenseSnapshot.child("date").getValue().toString();
@@ -147,15 +147,29 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
                         Double itemPrice = Double.parseDouble(itemsSnapShot.child("price").getValue().toString());
                         itemsList.add(new Item(itemcategory, itemName, itemQuantity, itemPrice));
                     }
-                    if(expenseTotalAmount>dailylimitAmount){
-                        Log.d("condition for expenses","####################################");
-                        createNotificationChannel(childName,dailylimitAmount);
-                    }
 
+                    // checking if limit of total purchase for today has exceeded
+                    Date currDate = Calendar.getInstance().getTime();
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    String formattedDate = df.format(currDate);
+                    if(formattedDate.equals(expenseDate)) {
+                        Double expenseForParticularDay = 0.0;
+                        expenseForParticularDay += expenseTotalAmount;
+                        if (expenseForParticularDay > dailylimitAmount) {
+                            String notify =session.getNotificationSent();
+                            if (!notify.equals("sent")) {
+                                session.setNotificationSent("sent");
+                                Log.d("condition for expenses", "####################################");
+                                createNotificationChannel(childName, dailylimitAmount);
+                            }
+                        }
+                    }
                     expenseList.add(new Expense(expenseId, expenseStore, expenseDate, expenseTotalAmount, itemsList));
                     ItemAdapter adapter = new ItemAdapter(expenseList);
                     mRecyclerView.setAdapter(adapter);
                 }
+
+
             }
 
             @Override
@@ -164,11 +178,12 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
             }
         });
 
+
+
     }
     public void createNotificationChannel(String childName, double dailyLimit) {
-        Toast.makeText(getApplicationContext(),"Inside create Channel",Toast.LENGTH_SHORT).show();
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
+       // Toast.makeText(getApplicationContext(),"Inside create Channel",Toast.LENGTH_SHORT).show();
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "char for notification";
             String description = "string for notification";
@@ -206,5 +221,6 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
         // Start the activity.
         startActivity(intent);
     }
+
 
 }

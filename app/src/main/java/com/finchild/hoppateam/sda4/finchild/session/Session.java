@@ -80,15 +80,15 @@ public class Session {
     }
 
     public void setChildWeeklyStat(String s) {
-        prefs.edit().putString("weeklyLimitStat", "weeklyLimitStat").commit();
+        prefs.edit().putString("weeklyLimitStat", s).commit();
     }
 
     public void setChildDailyLimitStat(String s) {
-        prefs.edit().putString("dailyLimitStat", "dailyLimitStat").commit();
+        prefs.edit().putString("dailyLimitStat", s).commit();
     }
 
     public void setChildMonthlyyLimitStat(String s) {
-        prefs.edit().putString("monthlyimitStat", "monthlyLimitStat").commit();
+        prefs.edit().putString("monthlyimitStat", s).commit();
     }
 
     public String getChildWeeklyLimitStat() {
@@ -105,6 +105,15 @@ public class Session {
         String dailyStat = prefs.getString("dailyLimitStat", "");
         return dailyStat;
     }
+    public void setNotificationSent(String s) {
+        prefs.edit().putString("notificationSent", s).commit();
+    }
+
+    public String getNotificationSent() {
+        String notificationSent = prefs.getString("notificationSent", "");
+        return notificationSent;
+    }
+
 
 
 }

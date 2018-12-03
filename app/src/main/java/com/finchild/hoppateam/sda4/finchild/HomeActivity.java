@@ -2,7 +2,6 @@ package com.finchild.hoppateam.sda4.finchild;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,7 +44,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
-        SystemClock.sleep(1000);
+        //SystemClock.sleep(1000);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 

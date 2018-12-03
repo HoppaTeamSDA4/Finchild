@@ -19,23 +19,32 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="200dp"
-        app:layout_constraintBottom_toBottomOf="@+id/homeFragment"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        app:layout_constraintBottom_toBottomOf="@+id/topHomeFrag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/common_google_signin_btn_text_light_default" />
+        app:srcCompat="@color/common_google_signin_btn_text_light_default"
+        />
 
     <TextView
-        style="@style/style_tittle"
+        android:id="@+id/tvChildPAutoFill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/topHomeFrag"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="1dp"
-        android:gravity="center"
-        android:text="Send money"/>
+        android:layout_marginBottom="8dp"
+        android:text="Autofill"
+        android:textAlignment="center"
+        android:textColor="@color/colorTextButton"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/topHomeFrag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topHomeFrag"
+        app:srcCompat="@color/common_google_signin_btn_text_light_default" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,7 +101,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerDayAutofill"
+                android:id="@+id/spinnerWeekdayAutofill"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -117,7 +126,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerWeekdayAutofill"
+                android:id="@+id/spinnerDayAutofill"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -161,7 +170,13 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center_vertical|center_horizontal"
+            android:onClick="autoFillByType"
+            android:text="Confirm"
+            style="@style/style_button" 
             android:text="Confirm" />
+
 
 
     </LinearLayout>

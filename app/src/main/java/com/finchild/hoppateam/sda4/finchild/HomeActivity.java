@@ -27,7 +27,7 @@ import java.util.List;
 
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
-    private final String CHANNEL_ID="personal Notification";
+    private final String CHANNEL_ID = "personal Notification";
     private FirebaseAuth firebaseAuth;
     private ImageView backBtn;
     private ImageView btnSettings;
@@ -37,9 +37,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView.Adapter adapter;
     private List<ChildAccount> childAccList = new ArrayList<>();
     private String userId;
-
-
-
+    private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,23 +45,23 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //SystemClock.sleep(1000);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        session = new Session(getApplicationContext());
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
         //if the user is not logged in
         //that means current user will return null
-         FirebaseUser user = firebaseAuth.getCurrentUser(); 
+        FirebaseUser user = firebaseAuth.getCurrentUser();
         if (firebaseAuth.getCurrentUser() == null) {
             //closing this activitybtnSettings = (ImageView) findViewById(R.id.ivSettings);
             finish();
             //starting login activitybackBtn.setOnClickListener(this);
-                startActivity(new Intent(this, LoginActivity.class));
-        } else{
+            startActivity(new Intent(this, LoginActivity.class));
+        } else {
             userId = user.getUid();
         }
 
-        btnSettings = (ImageView) findViewById(R.id.ivSettings);  
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
         btnAddChild = (Button) findViewById(R.id.btnAddChild);
         backBtn = (ImageView) findViewById(R.id.ivBack);
         backBtn.setOnClickListener(this);
@@ -71,6 +69,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnAddChild.setOnClickListener(this);
         initialiseData();
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -92,7 +91,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (view == backBtn) {
-            Session session=new Session(HomeActivity.this);
             session.clear();
             firebaseAuth.signOut();
             //closing activity
@@ -102,10 +100,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-  // Method of Initiating Data in the list, to be called for the RecyclerView
+    // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData() {
-
-        Session session=new Session(HomeActivity.this);
         session.clear();
         DatabaseReference accountRef = FirebaseDatabase.getInstance().getReference().child("account").child(userId);
         accountRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -114,7 +110,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 String ParentAccountNo = "";
                 for (DataSnapshot accshot : dataSnapshot.getChildren()) {
                     ParentAccountNo = accshot.getKey();
-                    Session session=new Session(HomeActivity.this);
                     session.setParentAcc(ParentAccountNo);
                 }
                 if (!ParentAccountNo.equals("") && ParentAccountNo != null) {
@@ -151,7 +146,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-   }
+    }
 
 
 }

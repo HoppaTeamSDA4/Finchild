@@ -25,11 +25,10 @@ public class ChildSpendLimit extends AppCompatActivity {
 
     //view objects
 
-    private ImageView btnBack;
+    private ImageView backBtn;
     private Button confirm;
     private EditText amountSpendLimits;
 
-    private ImageView backBtn;
 
     private Spinner frequency;
     private String limitType;
@@ -45,7 +44,19 @@ public class ChildSpendLimit extends AppCompatActivity {
 
         //initializing views
 
-        btnBack = (ImageView) findViewById(R.id.btnBack);
+        //initializing views
+        backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
+
         confirm=(Button) findViewById(R.id.confirm);
 
         frequency= (Spinner) findViewById(R.id.spinnerFrequency);
@@ -101,29 +112,6 @@ public class ChildSpendLimit extends AppCompatActivity {
         });
 
     }
-    public void onClick(View view) {
-        //if btnBack is pressed
-        if (view == btnBack){
-            // Create an Intent to start the control activity
-            Intent backIntent = new Intent(this, Control.class);
-            // Start the activity.
-            startActivity(backIntent);
-        }
-
-        backBtn = (ImageView) findViewById(R.id.ivBack);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goAccount();
-            }
-        });
-
-        // to set the back button instead of the logout
-        backBtn.setImageResource(R.drawable.back_button);
-
-    }
-
 
     private void goAccount() {
         // Create an Intent to start the Control activity

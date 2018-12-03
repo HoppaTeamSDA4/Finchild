@@ -100,7 +100,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerDayAutofill"
+                android:id="@+id/spinnerWeekdayAutofill"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -125,7 +125,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerWeekdayAutofill"
+                android:id="@+id/spinnerDayAutofill"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"

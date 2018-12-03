@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,41 +30,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AccountChildPurchases extends ElementsBottomBarNav  {
+public class AccountChildPurchases extends ElementsBottomBarNav implements View.OnClickListener {
 
     private ImageView backBtn;
+    private ImageView btnSettings;
     private TextView tvChildPurchase, tvBalancePurchase;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter adapter;
     private List<Expense> expenseList = new ArrayList<>();
     private List<Item> itemsList = new ArrayList<>();
     private BottomNavigationView mMainNav;
-
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        session= new Session(getApplicationContext());
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        Session session = new Session(AccountChildPurchases.this);
-        if(session.getChildAccNo().equals("")||session.getChildAccNo()==null){
+
+        if (session.getChildAccNo().equals("") || session.getChildAccNo() == null) {
             session.setChildAccNo(getIntent().getStringExtra("childAccNo"));
         }
-        if(session.getChildAccBalance().equals("")||session.getChildAccBalance()==null){
+        if (session.getChildAccBalance().equals("") || session.getChildAccBalance() == null) {
             session.setChildAccBalance(Double.toString(getIntent().getDoubleExtra("childAccBalance", 0.0)));
         }
 
-        if(session.getChildName().equals("")||session.getChildName()==null){
+        if (session.getChildName().equals("") || session.getChildName() == null) {
             session.setChildName(getIntent().getStringExtra("childName"));
         }
 
         System.out.println(session.getParentAcc());
+        System.out.println(session.getChildAccNo());
 
         tvChildPurchase = (TextView) findViewById(R.id.tvChildPurchase);
         tvBalancePurchase = (TextView) findViewById(R.id.tvBalancePurchase);
         backBtn = (ImageView) findViewById(R.id.ivBack);
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
-
+        backBtn.setOnClickListener(this);
+        btnSettings=(ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setOnClickListener(this);
 
         //pass here name from the home activity the name and the balance of the child
         tvChildPurchase.setText(session.getChildName());
@@ -83,6 +89,16 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
     }
 
     @Override
+    public void onClick(View v) {
+        if (v == backBtn) {
+            finish();
+        }
+        if (v == btnSettings) {
+            startActivity(new Intent(this, Settings.class));
+        }
+    }
+
+    @Override
     int getContentViewId() {
         return R.layout.account_child_purchases;
     }
@@ -94,9 +110,6 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
 
     // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData() {
-        ArrayList<Expense> expenses = new ArrayList<>();
-        ArrayList<Item> hemkopsItemps = new ArrayList<>();
-        Session session = new Session(AccountChildPurchases.this);
         String parentAcc = session.getParentAcc();
         String childAcc = session.getChildAccNo();
         DatabaseReference childAccRef = FirebaseDatabase.getInstance().getReference().child("expenses").child(childAcc);
@@ -106,6 +119,7 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
                 itemsList.clear();
                 expenseList.clear();
                 for (DataSnapshot expenseSnapshot : dataSnapshot.getChildren()) {
+                    itemsList = new ArrayList<>();
                     String expenseId = expenseSnapshot.getKey();
                     String expenseStore = expenseSnapshot.child("store").getValue().toString();
                     String expenseDate = expenseSnapshot.child("date").getValue().toString();

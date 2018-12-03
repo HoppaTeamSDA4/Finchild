@@ -24,9 +24,13 @@ import com.google.firebase.database.ValueEventListener;
 public class ChildSpendLimit extends AppCompatActivity {
 
     //view objects
+
     private ImageView btnBack;
     private Button confirm;
     private EditText amountSpendLimits;
+
+    private ImageView backBtn;
+
     private Spinner frequency;
     private String limitType;
     private String limitAmount;
@@ -40,8 +44,10 @@ public class ChildSpendLimit extends AppCompatActivity {
         setContentView(R.layout.activity_child_spend_limit);
 
         //initializing views
+
         btnBack = (ImageView) findViewById(R.id.btnBack);
         confirm=(Button) findViewById(R.id.confirm);
+
         frequency= (Spinner) findViewById(R.id.spinnerFrequency);
         amountSpendLimits=(EditText) findViewById(R.id.amountSpendLimit);
 
@@ -55,6 +61,7 @@ public class ChildSpendLimit extends AppCompatActivity {
             public void onItemSelected(AdapterView <?> parent, View view, int position, long id) {
                 limitType=frequency.getItemAtPosition(position).toString();
             }
+
 
             @Override
             public void onNothingSelected(AdapterView <?> parent) {
@@ -103,6 +110,26 @@ public class ChildSpendLimit extends AppCompatActivity {
             startActivity(backIntent);
         }
 
+        backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
+
+    }
+
+
+    private void goAccount() {
+        // Create an Intent to start the Control activity
+        Intent intent = new Intent(this, Control.class);
+        // Start the activity.
+        startActivity(intent);
     }
 
     public String selectSwitchLimit(String limitType){

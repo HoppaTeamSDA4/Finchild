@@ -1,7 +1,5 @@
 package com.finchild.hoppateam.sda4.finchild;
 
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -29,6 +27,7 @@ import java.util.List;
 
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+    private final String CHANNEL_ID="personal Notification";
     private FirebaseAuth firebaseAuth;
     private ImageView backBtn;
     private ImageView btnSettings;
@@ -70,18 +69,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         backBtn.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
         btnAddChild.setOnClickListener(this);
-
-
+        initialiseData();
     }
-
-
     @Override
     protected void onStart() {
         super.onStart();
         initialiseData();
     }
-
-
 
     public void onClick(View view) {
         //if btnSettings is pressed
@@ -108,8 +102,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-    // Method of Initiating Data in the list, to be called for the RecyclerView
+  // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData() {
 
         Session session=new Session(HomeActivity.this);
@@ -150,6 +143,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     });
                 }
+
             }
 
             @Override
@@ -157,11 +151,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-
-
-
-    }
-
+   }
 
 
 }

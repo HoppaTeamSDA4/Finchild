@@ -1,7 +1,6 @@
 package com.finchild.hoppateam.sda4.finchild;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,14 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Switch;
-
-import com.finchild.hoppateam.sda4.finchild.session.Session;
 
 public class AccountChildAutoFill extends ElementsBottomBarNav {
 
     //view objects
-    private ImageView btnBack;
+    private ImageView backBtn;
 
     private Spinner frequencyAutofill;
     private Spinner daysAutofill;
@@ -30,11 +26,23 @@ public class AccountChildAutoFill extends ElementsBottomBarNav {
         super.onCreate(savedInstanceState);
 
         //initializing views
-        btnBack = (ImageView) findViewById(R.id.btnBack);
 
         frequencyAutofill = (Spinner) findViewById(R.id.fillFrequency);
         daysAutofill = (Spinner) findViewById(R.id.spinnerDayAutofill);
         weekdaysAutofill = (Spinner) findViewById(R.id.spinnerWeekdayAutofill);
+
+        backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
+
 
         //Create adapter to frequency spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
@@ -119,5 +127,11 @@ public class AccountChildAutoFill extends ElementsBottomBarNav {
         
     }
 
+    private void goAccount() {
+        // Create an Intent to start the AccountChildPurchases activity
+        Intent intent = new Intent(this, AccountChildPurchases.class);
+        // Start the activity.
+        startActivity(intent);
+    }
 
 }

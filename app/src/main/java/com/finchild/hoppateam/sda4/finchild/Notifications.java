@@ -10,9 +10,11 @@ public class Notifications extends AppCompatActivity {
 
     //view objects
     private ImageView backBtn;
+    private ImageView btnSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
@@ -28,6 +30,8 @@ public class Notifications extends AppCompatActivity {
 
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
 
     }
 

@@ -49,23 +49,14 @@
 
         <Button
             android:id="@+id/btnSpendLimit"
+            style="@style/style_button"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="50dp"
             android:onClick="onClick"
-            android:text="Spending limits"
-            style="@style/style_button"
-            android:layout_margin="2dp"/>
+            android:text="Spending limits" />
 
-        <Button
-            android:id="@+id/btnAutofill"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="onClick"
-            android:text="Autofill"
-            style="@style/style_button"
-            android:layout_margin="2dp"/>
 
         <Button
             android:id="@+id/btnAccountControl"
@@ -75,7 +66,7 @@
             android:onClick="onClick"
             android:text="Account control"
             style="@style/style_button"
-            android:layout_margin="2dp"/>
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/btnAllowedMarkets"
@@ -85,7 +76,7 @@
             android:onClick="onClick"
             android:text="Allowed markets"
             style="@style/style_button"
-            android:layout_margin="2dp"/>
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/btnNotifications"
@@ -95,7 +86,7 @@
             android:onClick="onClick"
             android:text="Notifications"
             style="@style/style_button"
-            android:layout_margin="2dp"/>
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 

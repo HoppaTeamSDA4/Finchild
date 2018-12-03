@@ -15,7 +15,7 @@ public class Control extends ElementsBottomBarNav {
     private Button btnAllowedMarkets;
     private Button btnNotifications;
     private ImageView backBtn;
-
+    private ImageView btnSettings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -24,7 +24,6 @@ public class Control extends ElementsBottomBarNav {
 
         //initializing views
         btnSpendLimit = (Button) findViewById(R.id.btnSpendLimit);
-        btnAutofill = (Button) findViewById(R.id.btnAutofill);
         btnAccountControl = (Button) findViewById(R.id.btnAccountControl);
         btnAllowedMarkets = (Button) findViewById(R.id.btnAllowedMarkets);
         btnNotifications = (Button) findViewById(R.id.btnNotifications);
@@ -40,6 +39,8 @@ public class Control extends ElementsBottomBarNav {
 
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
 
     }
 
@@ -61,13 +62,7 @@ public class Control extends ElementsBottomBarNav {
             // Start the activity.
             startActivity(spendLimitIntent);
         }
-        //if btnAutofill is pressed
-        if (view == btnAutofill){
-            // Create an Intent to start the AccountChildAutoFill activity
-            Intent autofillIntent = new Intent(this, AccountChildAutoFill.class);
-            // Start the activity.
-            startActivity(autofillIntent);
-        }
+
         //if btnAccountControl is pressed
         if (view == btnAccountControl){
             // Create an Intent to start the AccountControl activity

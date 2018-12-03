@@ -66,18 +66,12 @@ public class AccountChildPurchases extends ElementsBottomBarNav implements View.
         tvBalancePurchase = (TextView) findViewById(R.id.tvBalancePurchase);
         backBtn = (ImageView) findViewById(R.id.ivBack);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goHome();
-            }
-        });
-
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
         backBtn.setOnClickListener(this);
         btnSettings = (ImageView) findViewById(R.id.ivSettings);
-        btnSettings.setOnClickListener(this);
+        btnSettings.setImageResource(0);
+
 
 
         //pass here name from the home activity the name and the balance of the child
@@ -106,10 +100,7 @@ public class AccountChildPurchases extends ElementsBottomBarNav implements View.
     @Override
     public void onClick(View v) {
         if (v == backBtn) {
-            finish();
-        }
-        if (v == btnSettings) {
-            startActivity(new Intent(this, Settings.class));
+             goHome(); 
         }
     }
 

@@ -30,6 +30,9 @@ public class ChildSpendLimit extends AppCompatActivity {
     private EditText amountSpendLimits;
 
 
+    private ImageView btnSettings;
+
+
     private Spinner frequency;
     private String limitType;
     private String limitAmount;
@@ -43,6 +46,19 @@ public class ChildSpendLimit extends AppCompatActivity {
         setContentView(R.layout.activity_child_spend_limit);
 
         //initializing views
+        backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
 
         //initializing views
         backBtn = (ImageView) findViewById(R.id.ivBack);
@@ -56,6 +72,7 @@ public class ChildSpendLimit extends AppCompatActivity {
 
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
+
 
         confirm=(Button) findViewById(R.id.confirm);
 

@@ -26,13 +26,15 @@
         app:srcCompat="@color/common_google_signin_btn_text_light_default" />
 
     <TextView
+        style="@style/style_tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Child Spend limits"
-        style="@style/style_tittle" />
+        android:text="Child Spend limits" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,12 +51,15 @@
         android:paddingBottom="16dp"
         tools:context=".ChildSpendLimit">
 
-        <RelativeLayout
-            android:layout_width="266dp"
-            android:layout_height="46dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            >
 
             <TextView
                 android:id="@+id/type"
@@ -62,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="Type:"
                 android:textColor="@color/colorText"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -75,28 +80,28 @@
                 android:layout_marginRight="30dp"
                 android:layout_toRightOf="@+id/type"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 />
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="266dp"
-            android:layout_height="46dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Amount:"
                 android:textColor="@color/colorText"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -113,7 +118,7 @@
                 android:hint="0"
                 android:inputType="number"
                 android:padding="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -123,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:text="Kr"
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

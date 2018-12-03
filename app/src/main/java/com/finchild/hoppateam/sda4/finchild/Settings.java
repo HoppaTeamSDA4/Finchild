@@ -31,6 +31,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     private final String[] profile_menu = {"Change Password", "Add Card and Account",};
     private TextView item_view;
     private ImageView btnBack;
+    private ImageView btnSettings;
     private Button pwReset;
     private PopupWindow popupWindow;
     private String pw;
@@ -47,6 +48,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         // to set the back button instead of the logout
         btnBack.setImageResource(R.drawable.back_button);
         btnBack.setOnClickListener(this);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

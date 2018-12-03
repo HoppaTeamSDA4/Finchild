@@ -1,19 +1,11 @@
 package com.finchild.hoppateam.sda4.finchild;
 
-
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,6 +27,7 @@ import java.util.List;
 
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+    private final String CHANNEL_ID = "personal Notification";
     private FirebaseAuth firebaseAuth;
     private ImageView backBtn;
     private ImageView btnSettings;
@@ -46,49 +39,42 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private String userId;
     private Session session;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
-        SystemClock.sleep(1000);
+        //SystemClock.sleep(1000);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        session=new Session(getApplicationContext());
+        session = new Session(getApplicationContext());
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
         //if the user is not logged in
         //that means current user will return null
-         FirebaseUser user = firebaseAuth.getCurrentUser(); 
+        FirebaseUser user = firebaseAuth.getCurrentUser();
         if (firebaseAuth.getCurrentUser() == null) {
             //closing this activitybtnSettings = (ImageView) findViewById(R.id.ivSettings);
             finish();
             //starting login activitybackBtn.setOnClickListener(this);
-                startActivity(new Intent(this, LoginActivity.class));
-        } else{
+            startActivity(new Intent(this, LoginActivity.class));
+        } else {
             userId = user.getUid();
         }
 
-        btnSettings = (ImageView) findViewById(R.id.ivSettings);  
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
         btnAddChild = (Button) findViewById(R.id.btnAddChild);
         backBtn = (ImageView) findViewById(R.id.ivBack);
         backBtn.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
         btnAddChild.setOnClickListener(this);
-
-
+        initialiseData();
     }
-
 
     @Override
     protected void onStart() {
         super.onStart();
         initialiseData();
     }
-
-
 
     public void onClick(View view) {
         //if btnSettings is pressed
@@ -113,7 +99,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, LoginActivity.class));
         }
     }
-
 
     // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData() {
@@ -153,6 +138,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     });
                 }
+
             }
 
             @Override
@@ -160,11 +146,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-
-
-
     }
-
 
 
 }

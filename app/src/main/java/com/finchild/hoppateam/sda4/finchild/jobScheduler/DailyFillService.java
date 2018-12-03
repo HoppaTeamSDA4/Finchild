@@ -34,14 +34,15 @@ public class DailyFillService extends JobService {
 
 
     private void doJob(JobParameters params) {
+        session = new Session(getApplicationContext());
+        final String parentAcc = session.getParentAcc();
+        System.out.println(parentAcc);
+        final String childAcc = session.getChildAccNo();
+        System.out.println(childAcc);
         new Thread(new Runnable() {
             @Override
             public void run() {
-                session = new Session(getApplicationContext());
-                final String parentAcc = session.getParentAcc();
-                System.out.println(parentAcc);
-                final String childAcc = session.getChildAccNo();
-                System.out.println(childAcc);
+
                 final DatabaseReference autoFillRef = FirebaseDatabase.getInstance().getReference().child("autofill").child(childAcc).child("dailyFill");
                 autoFillRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

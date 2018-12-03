@@ -26,30 +26,28 @@
 
     <TextView
         android:id="@+id/tvChildPurchase"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/style_tittle"
+        android:layout_width="243dp"
+        android:layout_height="44dp"
         android:layout_marginEnd="200dp"
-        android:paddingLeft="20dp"
+        android:paddingLeft="10dp"
         android:text="child name"
-        android:textColor="@color/colorTextButton"
-        android:textSize="28sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvBalancePurchase"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/style_tittle"
+        android:layout_width="129dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:paddingRight="20dp"
         android:text="balance"
         android:textAlignment="textEnd"
-        android:textColor="@color/colorTextButton"
-        android:textSize="28sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvChildPurchase"
@@ -60,10 +58,16 @@
         layout="@layout/purchase_list_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+
+
+
         app:layout_constraintBottom_toTopOf="@+id/navigation"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@id/imageView3" />
+
+
 
 
     <include

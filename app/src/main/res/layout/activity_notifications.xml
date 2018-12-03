@@ -1,41 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
-    android:background="@color/colorBackground"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    tools:context=".Notifications">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/topHomeFrag"
+        android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        tools:layout="@layout/fragment_top_home" />
 
     <ImageView
-        android:id="@+id/btnBack"
-        android:layout_width="50dp"
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:srcCompat="?attr/actionModeCloseDrawable"
-        android:onClick="onClick"/>
+        android:layout_marginTop="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/common_google_signin_btn_text_light_default" />
 
     <TextView
-        android:layout_width="349dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_alignBottom="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
         android:text="Notifications"
-        android:textColor="@color/colorTextTitle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="60dp"/>
+        style="@style/style_tittle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topHomeFrag"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        tools:context=".Notifications">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="254dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="112dp"
@@ -95,7 +106,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -168,3 +180,5 @@
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
+
+</RelativeLayout>

@@ -42,14 +42,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/topHomeFrag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topHomeFrag" />
+        app:layout_constraintTop_toTopOf="@+id/topHomeFrag"
+        app:srcCompat="@color/common_google_signin_btn_text_light_default" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"
         android:background="@color/colorBackground"
         android:orientation="vertical"
         android:paddingLeft="16dp"
@@ -172,9 +173,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:onClick="autoFillByType"
             android:text="Confirm"
-            android:textColor="@color/colorTextButton"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            style="@style/style_button" />
 
 
     </LinearLayout>

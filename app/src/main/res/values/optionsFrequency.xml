@@ -8,6 +8,13 @@
 
     </string-array>
 
+    <string-array name="limit">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+
+    </string-array>
+
     <string-array name="weekdays">
         <item>Monday</item>
         <item>Tuesday</item>
@@ -61,8 +68,8 @@
     </string-array>
 
     <string-array name="typeData">
-        <item>Options</item>
         <item>Purchases</item>
+        <item>Spent amount</item>
         <item>Top items</item>
         <item>Frequent stores</item>
 

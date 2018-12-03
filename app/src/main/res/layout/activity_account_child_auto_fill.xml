@@ -172,8 +172,8 @@
             android:gravity="center_vertical|center_horizontal"
             style="@style/style_button"
             android:onClick="autoFillByType"
-            android:text="Confirm"
-             />
+            android:text="Confirm" />
+
 
 
 

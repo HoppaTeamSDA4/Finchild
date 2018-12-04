@@ -1,5 +1,10 @@
 package com.finchild.hoppateam.sda4.finchild;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -12,9 +17,9 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.finchild.hoppateam.sda4.finchild.adapter.ItemAdapter;
 import com.finchild.hoppateam.sda4.finchild.modules.Expense;
@@ -26,7 +31,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -65,8 +73,20 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
         tvChildPurchase = (TextView) findViewById(R.id.tvChildPurchase);
         tvBalancePurchase = (TextView) findViewById(R.id.tvBalancePurchase);
         backBtn = (ImageView) findViewById(R.id.ivBack);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        });
+
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
+        backBtn.setOnClickListener(this);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
+
 
 
         //pass here name from the home activity the name and the balance of the child
@@ -84,6 +104,19 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
         //purchases = new ArrayList<Purchase_Details>();
         initialiseData();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initialiseData();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == backBtn) {
+             goHome();
+        }
     }
 
     @Override
@@ -144,6 +177,12 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
                 }
             }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -185,5 +224,13 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
         }
 
     }
+
+    private void goHome() {
+        // Create an Intent to start the Home activity
+        Intent intent = new Intent(this, HomeActivity.class);
+        // Start the activity.
+        startActivity(intent);
+    }
+
 
 }

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.finchild.hoppateam.sda4.finchild">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -31,6 +32,9 @@
         <activity android:name=".Analytics" />
         <activity android:name=".AccountChildPurchases" />
         <activity android:name=".AccountChildAutoFill"></activity>
+        <service
+            android:name=".jobScheduler.DailyFillService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
 </manifest>

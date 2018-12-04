@@ -13,6 +13,7 @@ public class AllowedMarkets extends AppCompatActivity {
 
     //view objects
     private ImageView backBtn;
+    private ImageView btnSettings;
     private Spinner markets;
     private Button btnShowMap;
     private Button btnShowList;
@@ -41,6 +42,8 @@ public class AllowedMarkets extends AppCompatActivity {
 
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
 
         //Create adapter to market spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource

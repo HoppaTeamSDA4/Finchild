@@ -22,6 +22,7 @@ public class AddChildAcount extends AppCompatActivity {
 
     private Button confirmBtn;
     private ImageView backBtn;
+    private ImageView btnSettings;
     private EditText childNameView;
     private EditText childCardNoView;
     private EditText childAccNoView;
@@ -45,6 +46,9 @@ public class AddChildAcount extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

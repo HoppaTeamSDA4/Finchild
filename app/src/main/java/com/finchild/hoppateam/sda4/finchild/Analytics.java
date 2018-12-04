@@ -17,6 +17,7 @@ public class Analytics extends ElementsBottomBarNav {
     private Spinner period;
     private Spinner typeData;
     private ImageView image;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class Analytics extends ElementsBottomBarNav {
         period = (Spinner) findViewById(R.id.spinnerPeriod);
         typeData = (Spinner) findViewById(R.id.spinnerTypeData);
         image = (ImageView) findViewById(R.id.imageDataGraphic);
+
+        btnBack = (ImageView) findViewById(R.id.back);
 
         //Create adapter to period spinner
         ArrayAdapter<CharSequence> periodAdapter = ArrayAdapter.createFromResource
@@ -73,4 +76,17 @@ public class Analytics extends ElementsBottomBarNav {
                     break;
         }
     }
+
+    public void onClick(View view)
+    {
+        switch (view.getId()) {
+            case R.id.back:
+                // Create an Intent to start the AccountChildPurchases activity
+                Intent intent = new Intent(this, AccountChildPurchases.class);
+                // Start the activity.
+                startActivity(intent);
+        }
+    }
+
+
 }

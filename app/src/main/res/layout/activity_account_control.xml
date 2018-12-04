@@ -49,13 +49,6 @@
         android:paddingBottom="16dp"
         tools:context=".AccountControl">
 
-    <ImageView
-        android:id="@+id/btnBack"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="?attr/actionModeCloseDrawable"
-        android:onClick="onClick"/>
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="254dp"
         android:layout_height="wrap_content"

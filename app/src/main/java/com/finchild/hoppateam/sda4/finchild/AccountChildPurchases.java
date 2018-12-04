@@ -1,19 +1,9 @@
 package com.finchild.hoppateam.sda4.finchild;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -100,7 +90,7 @@ public class AccountChildPurchases extends ElementsBottomBarNav implements View.
     @Override
     public void onClick(View v) {
         if (v == backBtn) {
-             goHome(); 
+            goHome();
         }
     }
 
@@ -118,7 +108,7 @@ public class AccountChildPurchases extends ElementsBottomBarNav implements View.
     public void initialiseData() {
         childAccount = new ChildAccount();
         String parentAcc = session.getParentAcc();
-        String childAcc = session.getChildAccNo();
+        final String childAcc = session.getChildAccNo();
         DatabaseReference childAccRef = FirebaseDatabase.getInstance().getReference().child("child").child(parentAcc);
         childAccRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

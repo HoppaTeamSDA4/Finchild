@@ -1,19 +1,9 @@
 package com.finchild.hoppateam.sda4.finchild;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,8 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.finchild.hoppateam.sda4.finchild.adapter.ItemAdapter;
+import com.finchild.hoppateam.sda4.finchild.modules.ChildAccount;
 import com.finchild.hoppateam.sda4.finchild.modules.Expense;
 import com.finchild.hoppateam.sda4.finchild.modules.Item;
+import com.finchild.hoppateam.sda4.finchild.notification.Notification;
 import com.finchild.hoppateam.sda4.finchild.session.Session;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,48 +30,31 @@ import java.util.Date;
 import java.util.List;
 
 
-public class AccountChildPurchases extends ElementsBottomBarNav  {
+public class AccountChildPurchases extends ElementsBottomBarNav implements View.OnClickListener {
 
     private ImageView backBtn;
+    private ImageView btnSettings;
     private TextView tvChildPurchase, tvBalancePurchase;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter adapter;
     private List<Expense> expenseList = new ArrayList<>();
-
-    private List<Item> itemsList=new ArrayList<>();
-    private final String CHANNEL_ID="personal Notification";
-
-
-
+    private List<Item> itemsList = new ArrayList<>();
+    private BottomNavigationView mMainNav;
+    Session session;
+    private ChildAccount childAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        Session session = new Session(AccountChildPurchases.this);
-        if(session.getChildAccNo().equals("")||session.getChildAccNo()==null){
+        session = new Session(getApplicationContext());
+        if (session.getChildAccNo().equals("") || session.getChildAccNo() == null) {
             session.setChildAccNo(getIntent().getStringExtra("childAccNo"));
         }
-        if(session.getChildAccBalance().equals("")||session.getChildAccBalance()==null){
-            session.setChildAccBalance(Double.toString(getIntent().getDoubleExtra("childAccBalance", 0.0)));
-        }
-
-        if(session.getChildName().equals("")||session.getChildName()==null){
-            session.setChildName(getIntent().getStringExtra("childName"));
-        }
-
-        System.out.println(session.getParentAcc());
 
         tvChildPurchase = (TextView) findViewById(R.id.tvChildPurchase);
         tvBalancePurchase = (TextView) findViewById(R.id.tvBalancePurchase);
         backBtn = (ImageView) findViewById(R.id.ivBack);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goHome();
-            }
-        });
 
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
@@ -115,7 +90,7 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
     @Override
     public void onClick(View v) {
         if (v == backBtn) {
-             goHome();
+            goHome();
         }
     }
 
@@ -131,51 +106,77 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
 
     // Method of Initiating Data in the list, to be called for the RecyclerView
     public void initialiseData() {
-
-        ArrayList<Item> hemkopsItemps = new ArrayList<>();
-        Session session = new Session(AccountChildPurchases.this);
-
-
-       // String childAcc = getIntent().getStringExtra("childAccNo");
-        //Getting the spending limits of child from childAdapter
-       String dailylimit=session.getChildDailyLimitAmount();
-       final double dailylimitAmount=Double.parseDouble(dailylimit);
-        final String childName =session.getChildName();
-      //  final double dailylimitAmount = Double.parseDouble(getIntent().getStringExtra("childAccDailyLimit"));
-       System.out.println(dailylimitAmount);
-       // boolean dailyLimitStatus=getIntent().getExtras().getBoolean("childAccDailyLimitStat");
-      //  final String childName=getIntent().getStringExtra("childName");
-
-        String childAcc = session.getChildAccNo();
-
-        DatabaseReference childAccRef = FirebaseDatabase.getInstance().getReference().child("expenses").child(childAcc);
-        childAccRef.addValueEventListener(new ValueEventListener() {
+        childAccount = new ChildAccount();
+        String parentAcc = session.getParentAcc();
+        final String childAcc = session.getChildAccNo();
+        DatabaseReference childAccRef = FirebaseDatabase.getInstance().getReference().child("child").child(parentAcc);
+        childAccRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                itemsList.clear();
-                expenseList.clear();
-                for (DataSnapshot expenseSnapshot : dataSnapshot.getChildren()) {
-                    String expenseId = expenseSnapshot.getKey();
-                    String expenseStore = expenseSnapshot.child("store").getValue().toString();
-                    String expenseDate = expenseSnapshot.child("date").getValue().toString();
-                    Double expenseTotalAmount = Double.parseDouble(expenseSnapshot.child("totalAmount").getValue().toString());
-                    for (DataSnapshot itemsSnapShot : expenseSnapshot.child("items").getChildren()) {
-                        String itemName = itemsSnapShot.child("name").getValue().toString();
-                        String itemcategory = itemsSnapShot.child("category").getValue().toString();
-                        Double itemQuantity = Double.parseDouble(itemsSnapShot.child("quantity").getValue().toString());
-                        Double itemPrice = Double.parseDouble(itemsSnapShot.child("price").getValue().toString());
-                        itemsList.add(new Item(itemcategory, itemName, itemQuantity, itemPrice));
-                    }
-                    if(expenseTotalAmount>dailylimitAmount){
-                        Log.d("condition for expenses","####################################");
-                        createNotificationChannel(childName,dailylimitAmount);
-                    }
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    if (childSnapshot.child("accountNo").getValue().toString().equals(childAcc)) {
+                        childAccount = childSnapshot.getValue(ChildAccount.class);
+                        String childName = childAccount.getName();
+                        double balance = childAccount.getBalance();
+                        tvChildPurchase.setText(childName);
+                        tvBalancePurchase.setText(Double.toString(balance));
+                        if (session.getChildAccBalance().equals("") || session.getChildAccBalance() == null) {
+                            session.setChildAccBalance(Double.toString(balance));
+                        }
 
-                    expenseList.add(new Expense(expenseId, expenseStore, expenseDate, expenseTotalAmount, itemsList));
-                    ItemAdapter adapter = new ItemAdapter(expenseList);
-                    mRecyclerView.setAdapter(adapter);
+                        if (session.getChildName().equals("") || session.getChildName() == null) {
+                            session.setChildName(childName);
+                        }
+                    }
                 }
-            }
+                String dailylimit = session.getChildDailyLimitAmount();
+                System.out.println(dailylimit);
+                final double dailylimitAmount = Double.parseDouble(dailylimit);
+                System.out.println(dailylimitAmount);
+                DatabaseReference childExpenseRef = FirebaseDatabase.getInstance().getReference().child("expenses").child(childAcc);
+                childExpenseRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        itemsList.clear();
+                        expenseList.clear();
+                        for (DataSnapshot expenseSnapshot : dataSnapshot.getChildren()) {
+                            itemsList = new ArrayList<>();
+
+                            String expenseId = expenseSnapshot.getKey();
+                            String expenseStore = expenseSnapshot.child("store").getValue().toString();
+                            String expenseDate = expenseSnapshot.child("date").getValue().toString();
+                            Double expenseTotalAmount = Double.parseDouble(expenseSnapshot.child("totalAmount").getValue().toString());
+                            for (DataSnapshot itemsSnapShot : expenseSnapshot.child("items").getChildren()) {
+                                String itemName = itemsSnapShot.child("name").getValue().toString();
+                                String itemcategory = itemsSnapShot.child("category").getValue().toString();
+                                Double itemQuantity = Double.parseDouble(itemsSnapShot.child("quantity").getValue().toString());
+                                Double itemPrice = Double.parseDouble(itemsSnapShot.child("price").getValue().toString());
+                                itemsList.add(new Item(itemcategory, itemName, itemQuantity, itemPrice));
+                            }
+
+                            // checking if limit of total purchase for today has exceeded
+                            Date currDate = Calendar.getInstance().getTime();
+                            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                            String formattedDate = df.format(currDate);
+                            if (formattedDate.equals(expenseDate)) {
+                                Double expenseForParticularDay = 0.0;
+                                expenseForParticularDay += expenseTotalAmount;
+                                if (expenseForParticularDay > dailylimitAmount) {
+                                    String notify = session.getNotificationSent();
+                                    if (!notify.equals("sent")) {
+                                        session.setNotificationSent("sent");
+                                        Log.d("condition for expenses", "####################################");
+                                        Notification.createNotificationChannel(getApplicationContext(), childAccount.getName(), dailylimitAmount, "limitNotif");
+                                    }
+                                }
+                            }
+                            expenseList.add(new Expense(expenseId, expenseStore, expenseDate, expenseTotalAmount, itemsList));
+                            ItemAdapter adapter = new ItemAdapter(expenseList);
+                            mRecyclerView.setAdapter(adapter);
+                        }
+
+
+                    }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -188,42 +189,8 @@ public class AccountChildPurchases extends ElementsBottomBarNav  {
 
             }
         });
-
     }
-    public void createNotificationChannel(String childName, double dailyLimit) {
-        Toast.makeText(getApplicationContext(),"Inside create Channel",Toast.LENGTH_SHORT).show();
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "char for notification";
-            String description = "string for notification";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-            //  sendNotification();
 
-          Intent resultIntent= new Intent(getApplicationContext(),AccountChildPurchases.class);
-
-            PendingIntent resultPendingIntent=PendingIntent.getActivity(getApplicationContext(),2,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
-
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_ID);
-
-            builder.setSmallIcon(R.drawable.childaccount)
-                    .setContentTitle("Child Purchase")
-                    .setContentText(childName +" has exceeded the limit of "+dailyLimit+ " for today")
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setAutoCancel(true)
-                    .setContentIntent(resultPendingIntent);
-
-            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
-            notificationManagerCompat.notify(001,builder.build());
-        }
-
-    }
 
     private void goHome() {
         // Create an Intent to start the Home activity

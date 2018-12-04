@@ -26,15 +26,13 @@
         app:srcCompat="@color/common_google_signin_btn_text_light_default" />
 
     <TextView
-        style="@style/style_tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Child Spend limits" />
+        android:text="Child Spend limits"
+        style="@style/style_tittle" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,11 +61,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            >
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/type"
@@ -75,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:text="Type:"
                 android:textColor="@color/colorText"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -88,7 +83,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_toRightOf="@+id/type"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:text="Amount:"
                 android:textColor="@color/colorText"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_toRightOf="@+id/spinnerFrequency"
                 app:layout_constraintStart_toStartOf="parent"
@@ -125,12 +120,11 @@
                 android:layout_height="wrap_content"
                 android:text="kr"
                 android:textColor="@android:color/black"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_toRightOf="@id/amountSpendLimit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
 
         </RelativeLayout>
 
@@ -142,52 +136,54 @@
             android:layout_margin="10dp"
             android:layout_gravity="center"/>
 
-       <!-- <TextView
-            android:id="@+id/statusLimitMessage"
+        <!-- <TextView
+             android:id="@+id/statusLimitMessage"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textColor="@color/colorPrimaryDark"
+             />-->
+        <LinearLayout
+            android:id="@+id/checkBoxes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark"
-            />-->
-            <LinearLayout
-                android:id="@+id/checkBoxes"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/dailyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:checked="false"
+                android:visibility="gone" />
 
-                <CheckBox
-                    android:id="@+id/dailyCheckBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:checked="false"
-                    android:visibility="gone" />
+            <CheckBox
+                android:id="@+id/weeklyCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:checked="false"
+                android:visibility="gone" />
 
-                <CheckBox
-                    android:id="@+id/weeklyCheckBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:checked="false"
-                    android:visibility="gone" />
-
-                <CheckBox
-                    android:id="@+id/monthlyCheckBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:checked="false"
-                    android:visibility="gone" />
-                <Button
-                    android:id="@+id/resetLimits"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Reset spending limits"
-                    />
-            </LinearLayout>
+            <CheckBox
+                android:id="@+id/monthlyCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:checked="false"
+                android:visibility="gone" />
+            <Button
+                android:id="@+id/resetLimits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Reset spending limits"
+                />
+        </LinearLayout>
     </LinearLayout>
+
+
 
 </RelativeLayout>

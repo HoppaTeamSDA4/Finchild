@@ -57,8 +57,8 @@
             android:onClick="onClick"/>
 
         <RelativeLayout
-            android:layout_width="266dp"
-            android:layout_height="46dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp">
@@ -76,35 +76,25 @@
 
             <Spinner
                 android:id="@+id/spinnerFrequency"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_toRightOf="@+id/type"
                 android:gravity="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="266dp"
-            android:layout_height="46dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Amount:"
                 android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:layout_toRightOf="@+id/spinnerFrequency"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,14 +102,13 @@
                 android:id="@+id/amountSpendLimit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/amount"
                 android:background="@android:color/white"
-                android:gravity="start"
+                android:gravity="center"
                 android:hint="0"
-                android:inputType="number"
-                android:padding="10dp"
+                android:inputType="numberDecimal"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -128,24 +117,72 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kr"
+                android:text="kr"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:layout_toRightOf="@id/amountSpendLimit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
 
+        </RelativeLayout>
 
         <Button
             android:id="@+id/confirm"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Confirm"
-            style="@style/style_button"
             android:layout_margin="10dp"
             android:layout_gravity="center"/>
 
-</LinearLayout>
+       <!-- <TextView
+            android:id="@+id/statusLimitMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            />-->
+            <LinearLayout
+                android:id="@+id/checkBoxes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/dailyCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:checked="false"
+                    android:visibility="gone" />
+
+                <CheckBox
+                    android:id="@+id/weeklyCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:checked="false"
+                    android:visibility="gone" />
+
+                <CheckBox
+                    android:id="@+id/monthlyCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:checked="false"
+                    android:visibility="gone" />
+                <Button
+                    android:id="@+id/resetLimits"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Reset spending limits"
+                    />
+            </LinearLayout>
+    </LinearLayout>
+
+
 
 </RelativeLayout>

@@ -2,11 +2,8 @@ package com.finchild.hoppateam.sda4.finchild.modules;
 
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.finchild.hoppateam.sda4.finchild.modules.Item;
 
 public class Expense extends ExpandableGroup<Item> {
     private String expenseId;
@@ -58,4 +55,5 @@ public class Expense extends ExpandableGroup<Item> {
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
+
 }

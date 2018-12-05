@@ -156,7 +156,6 @@ public class AccountChildAutoFill extends ElementsBottomBarNav {
 
         if(!accStatus){
             confirmBtn.setEnabled(false);
-            confirmBtn.setBackgroundColor(getResources().getColor(R.color.colorDivider));
             frequencyAutofill.setEnabled(false);
             amountView.setEnabled(false);
 

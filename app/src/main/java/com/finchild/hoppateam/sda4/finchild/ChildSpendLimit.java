@@ -25,12 +25,12 @@ import com.google.firebase.database.ValueEventListener;
 public class ChildSpendLimit extends AppCompatActivity {
 
     //view objects
-    private ImageView btnBack;
     private Button confirm;
     private EditText amountSpendLimits;
     private Spinner frequency;
     private String limitType;
     private double limitAmount;
+    private ImageView backBtn;
     //private TextView limitMessage;
     //private Session session;
     private CheckBox dailycheck;
@@ -45,7 +45,7 @@ public class ChildSpendLimit extends AppCompatActivity {
         setContentView(R.layout.activity_child_spend_limit);
 
         //initializing views
-        btnBack = (ImageView) findViewById(R.id.btnBack);
+        backBtn = (ImageView) findViewById(R.id.ivBack);
         confirm = (Button) findViewById(R.id.confirm);
         frequency = (Spinner) findViewById(R.id.spinnerFrequency);
         amountSpendLimits = (EditText) findViewById(R.id.amountSpendLimit);
@@ -54,6 +54,18 @@ public class ChildSpendLimit extends AppCompatActivity {
         weeklycheck = (CheckBox) findViewById(R.id.weeklyCheckBox);
         monthlycheck = (CheckBox) findViewById(R.id.monthlyCheckBox);
         resetSpendingLimits = (Button) findViewById(R.id.resetLimits);
+
+        backBtn.setImageResource(R.drawable.back_button);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+
+
+
 
         //Create adapter to frequency spinner
         final ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource
@@ -235,7 +247,7 @@ public class ChildSpendLimit extends AppCompatActivity {
 
     public void onClick(View view) {
         //if btnBack is pressed
-        if (view == btnBack) {
+        if (view == backBtn) {
             // Create an Intent to start the control activity
             Intent backIntent = new Intent(this, Control.class);
             // Start the activity.
@@ -267,6 +279,14 @@ public class ChildSpendLimit extends AppCompatActivity {
     public String displayLimit(String status, String result) {
         if (!Boolean.valueOf(status)) return "";
         else return result + " kr\n";
+    }
+
+
+    private void goAccount() {
+        // Create an Intent to start the Control activity
+        Intent intent = new Intent(this, Control.class);
+        // Start the activity.
+        startActivity(intent);
     }
 
 }

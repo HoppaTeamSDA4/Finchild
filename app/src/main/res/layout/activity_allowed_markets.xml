@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <fragment
         android:id="@+id/topHomeFrag"
@@ -26,13 +25,15 @@
         app:srcCompat="@color/common_google_signin_btn_text_light_default" />
 
     <TextView
+        style="@style/style_tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView3"
         android:layout_alignBottom="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp"
         android:gravity="center"
-        android:text="Allowed Markets"
-        style="@style/style_tittle" />
+        android:text="Allowed Markets" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,35 +46,35 @@
         android:orientation="vertical"
         tools:context=".AllowedMarkets">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="266dp"
-        android:layout_height="46dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="266dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:text="Markets:"
-            android:textColor="@color/colorText"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="Markets:"
+                android:textColor="@color/colorText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
-            android:id="@+id/spinnerMarket"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            <Spinner
+                android:id="@+id/spinnerMarket"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -104,12 +105,12 @@
 
         </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
 
-</LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

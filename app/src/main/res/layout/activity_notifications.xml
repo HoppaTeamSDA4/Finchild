@@ -11,6 +11,8 @@
         android:name="com.finchild.hoppateam.sda4.finchild.TopHomeFrag"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
+        android:layout_alignBottom="@+id/imageView3"
+        android:layout_marginBottom="0dp"
         tools:layout="@layout/fragment_top_home" />
 
     <ImageView
@@ -25,14 +27,16 @@
         app:srcCompat="@color/common_google_signin_btn_text_light_default" />
 
     <TextView
+        style="@style/style_tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView3"
         android:layout_alignBottom="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
         android:gravity="center"
-        android:text="Notifications"
-        style="@style/style_tittle" />
+        android:text="Notifications" />
 
     <LinearLayout
         android:layout_width="match_parent"

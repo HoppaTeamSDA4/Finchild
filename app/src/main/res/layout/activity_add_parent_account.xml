@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/colorBackground"
     tools:context=".AddParentAccount">
 
     <fragment
@@ -31,13 +31,14 @@
     <TextView
         style="@style/style_tittle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_alignBottom="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
         android:gravity="center"
         android:text="Add parent account"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -111,35 +112,35 @@
         android:id="@+id/showName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="3dp"
         android:layout_marginRight="20dp"
         android:ems="10"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:textSize="18sp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/showCardNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="3dp"
         android:layout_marginRight="20dp"
-        android:inputType="number"
         android:ems="10"
+        android:inputType="number"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullname"
-        android:textSize="18sp" />
+        app:layout_constraintTop_toBottomOf="@+id/fullname" />
 
     <TextView
         android:id="@+id/showAccNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:ems="10"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,6 +148,7 @@
 
     <Button
         android:id="@+id/deleteBtn"
+        style="@style/style_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -158,7 +160,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNo"
-        app:layout_constraintVertical_bias="0.24"
-        style="@style/style_button"/>
+        app:layout_constraintVertical_bias="0.24" />
 
 </android.support.constraint.ConstraintLayout>

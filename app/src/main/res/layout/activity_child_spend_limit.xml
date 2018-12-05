@@ -26,13 +26,15 @@
         app:srcCompat="@color/common_google_signin_btn_text_light_default" />
 
     <TextView
+        style="@style/style_tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
         android:gravity="center"
-        android:text="Child Spend limits"
-        style="@style/style_tittle" />
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="Child Spend limits" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,13 +51,6 @@
         android:paddingBottom="16dp"
         tools:context=".ChildSpendLimit">
 
-
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:srcCompat="?attr/actionModeCloseDrawable"
-            android:onClick="onClick"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -130,6 +125,7 @@
 
         <Button
             android:id="@+id/confirm"
+            style="@style/style_button"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Confirm"
@@ -174,13 +170,15 @@
                 android:layout_alignParentBottom="true"
                 android:checked="false"
                 android:visibility="gone" />
+
             <Button
                 android:id="@+id/resetLimits"
+                style="@style/style_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Reset spending limits"
-                />
+                android:padding="10dp"
+                android:text="Reset spending limits" />
         </LinearLayout>
     </LinearLayout>
 

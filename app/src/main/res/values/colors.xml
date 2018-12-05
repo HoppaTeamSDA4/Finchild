@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorTextTitle">#000000</color>
-    <color name="colorBackground">#ffffff</color>
+    <color name="colorBackground">#ece4b7</color>
     <color name="colorBackgroundEditText">#ffffff</color>
     <color name="colorText">#000000</color>
     <color name="colorPrimary">#2196f3</color>
-    <color name="colorPrimaryDark">#1976D2</color>
-    <color name="colorAccent">#03a9f4</color>
+    <color name="colorPrimaryDark">#e6aa68</color>
+    <color name="colorAccent">#7FB069</color>
     <color name="colorPrimaryLight">#bbdefb</color>
     <color name="colorTextButton">#ffffff</color>
     <color name="colorPrimaryText">#212121</color>
@@ -14,4 +14,8 @@
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparent">#80ffffff</color>
+    <color name="colorNewStyle">#f8951c</color>
+    <color name="colorItems">#e6aa68</color>
+    <color name="colorRow">#f8951c</color>
+    <color name="colorMenu">#02020B</color>
 </resources>

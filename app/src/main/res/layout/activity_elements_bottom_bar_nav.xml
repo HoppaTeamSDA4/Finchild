@@ -9,11 +9,11 @@
     android:layout_height="wrap_content"
     android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryText"
     android:visibility="visible"
     app:labelVisibilityMode="labeled"
     app:menu="@menu/nav_menu"
-    app:itemBackground="@color/colorPrimary"
+    app:itemBackground="@color/colorMenu"
     app:itemIconTint="@color/nav_color"
     app:itemTextColor="@color/nav_color"/>
 

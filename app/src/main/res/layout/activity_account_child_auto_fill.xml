@@ -61,15 +61,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center_vertical"
                 android:text="Type:"
                 android:textColor="@color/colorText"
                 android:textSize="20sp"
@@ -78,23 +79,25 @@
             <Spinner
                 android:id="@+id/fillFrequency"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
+                android:gravity="center_vertical"
                 android:spinnerMode="dialog"
                 android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center_vertical"
                 android:text="Day of week:"
                 android:textColor="@color/colorText"
                 android:textSize="20sp"
@@ -103,23 +106,25 @@
             <Spinner
                 android:id="@+id/spinnerWeekdayAutofill"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
+                android:gravity="center_vertical"
                 android:spinnerMode="dialog"
                 android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center_vertical"
                 android:text="Date of month:"
                 android:textColor="@color/colorText"
                 android:textSize="20sp"
@@ -128,8 +133,9 @@
             <Spinner
                 android:id="@+id/spinnerDayAutofill"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
+                android:gravity="center_vertical"
                 android:spinnerMode="dialog"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -137,15 +143,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center_vertical"
                 android:text="Amount:"
                 android:textColor="@color/colorText"
                 android:textSize="20sp"
@@ -154,10 +161,11 @@
             <EditText
                 android:id="@+id/amountAutofill"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
                 android:hint="kr"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:textAlignment="viewEnd" />
         </LinearLayout>
 
 

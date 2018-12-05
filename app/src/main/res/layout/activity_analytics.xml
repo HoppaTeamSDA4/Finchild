@@ -5,9 +5,45 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <include
+        android:id="@+id/includeAn"
+        layout="@layout/fragment_top_home"
+        android:layout_width="wrap_content"
+        android:layout_height="310dp"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/includeAn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        app:srcCompat="@color/common_google_signin_btn_text_light_default" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/style_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Analytics" />
+
+    <LinearLayout
+        android:id="@+id/ciao"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="0dp"
         android:background="@color/colorBackground"
         android:orientation="vertical"
         tools:context=".Analytics">
@@ -15,24 +51,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="10dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/back"
-                android:layout_margin="10dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                app:srcCompat="?android:attr/actionModeCloseDrawable"
-                android:onClick="onClick"/>
+                android:layout_margin="10dp"
+                android:onClick="onClick"
+                app:srcCompat="?android:attr/actionModeCloseDrawable" />
 
             <TextView
                 style="@style/style_tittle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="40dp"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Analytics"
@@ -65,7 +101,7 @@
                 android:layout_marginEnd="8dp"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -94,7 +130,7 @@
                 android:layout_marginEnd="8dp"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -103,61 +139,56 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="28dp"
             android:text="Graphic type:"
             android:textColor="@color/colorText"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="28dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="5dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <RadioButton android:id="@+id/radioRowChart"
+            <RadioButton
+                android:id="@+id/radioRowChart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:onClick="onRadioButtonClicked"
                 android:text="Row chart"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_margin="3dp"
-                android:onClick="onRadioButtonClicked"/>
+                android:textStyle="bold" />
 
-            <RadioButton android:id="@+id/radioLineChart"
+            <RadioButton
+                android:id="@+id/radioLineChart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="onRadioButtonClicked"
                 android:text="Line chart"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_margin="3dp"
-                android:onClick="onRadioButtonClicked"/>
+                android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/radioPieChart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginBottom="10dp"
+                android:checked="true"
+                android:onClick="onRadioButtonClicked"
                 android:text="Pie chart"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_margin="3dp"
-                android:onClick="onRadioButtonClicked"
-                android:checked = "true"/>
+                android:textStyle="bold" />
 
         </RadioGroup>
-
-        <ImageView
-            android:id="@+id/imageDataGraphic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/piechart"/>
 
     </LinearLayout>
 

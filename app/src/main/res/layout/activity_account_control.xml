@@ -26,13 +26,15 @@
         app:srcCompat="@color/common_google_signin_btn_text_light_default" />
 
     <TextView
+        style="@style/style_tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/topHomeFrag"
         android:layout_alignParentStart="true"
         android:gravity="center"
-        android:text="Account control"
-        style="@style/style_tittle"/>
+        android:paddingTop="5dp"
+        android:paddingBottom="6dp"
+        android:text="Account control" />
 
     <LinearLayout
         android:layout_width="match_parent"

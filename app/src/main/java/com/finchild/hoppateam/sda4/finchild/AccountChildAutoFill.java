@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -37,18 +38,21 @@ public class AccountChildAutoFill extends ElementsBottomBarNav {
     private EditText amountView;
     private final String Tag="AccountChildAutoFill";
     private ImageView btnSettings;
+    private Button confirmBtn;
     Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         session = new Session(getApplicationContext());
+        boolean accStatus=session.getChildAccStatus();
         //initializing views
+
 
         frequencyAutofill = (Spinner) findViewById(R.id.fillFrequency);
         daysAutofill = (Spinner) findViewById(R.id.spinnerDayAutofill);
         weekdaysAutofill = (Spinner) findViewById(R.id.spinnerWeekdayAutofill);
-
+        confirmBtn=(Button)findViewById(R.id.confirmBtn);
         backBtn = (ImageView) findViewById(R.id.ivBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,6 +153,14 @@ public class AccountChildAutoFill extends ElementsBottomBarNav {
 
             }
         });
+
+        if(!accStatus){
+            confirmBtn.setEnabled(false);
+            frequencyAutofill.setEnabled(false);
+            amountView.setEnabled(false);
+
+        }
+
     }
 
     @Override

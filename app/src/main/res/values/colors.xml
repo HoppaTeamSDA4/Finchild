@@ -14,8 +14,12 @@
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparent">#80ffffff</color>
+
     <color name="colorNewStyle">#f8951c</color>
     <color name="colorItems">#e6aa68</color>
     <color name="colorRow">#f8951c</color>
     <color name="colorMenu">#02020B</color>
+
+    <color name="colorInactiveStatus">#f72222</color>
+
 </resources>

@@ -33,6 +33,8 @@ public class AddParentAccount extends AppCompatActivity {
     private Button confirmBtn;
     private Button deleteBtn;
     private ImageView backBtn;
+    private ImageView btnSettings;
+    private String accountNo;
   
 
     @Override
@@ -49,15 +51,20 @@ public class AddParentAccount extends AppCompatActivity {
         showAccNoView = (TextView) findViewById(R.id.showAccNo);
         deleteBtn = (Button) findViewById(R.id.deleteBtn);
         backBtn = (ImageView) findViewById(R.id.ivBack);
-        // to set the back button instead of the logout
-        backBtn.setImageResource(R.drawable.back_button);
-        checkAccount();
+
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        // to set the back button instead of the logout
+        backBtn.setImageResource(R.drawable.back_button);
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
+        checkAccount();
+
 
     }
 
@@ -76,12 +83,14 @@ public class AddParentAccount extends AppCompatActivity {
                     for(DataSnapshot accountShot:dataSnapshot.getChildren()){
                         showNameView.setText("Name: "+accountShot.child("name").getValue());
                         showCardNoView.setText("Card Number: "+accountShot.child("cardNo").getValue());
-                        showAccNoView.setText("Account Number: "+accountShot.getKey());
+                        accountNo=accountShot.getKey().toString();
+                        showAccNoView.setText("Account Number: "+accountNo);
                     }
                     deleteBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             FirebaseDatabase.getInstance().getReference().child("account").child(userId).removeValue();
+                            FirebaseDatabase.getInstance().getReference().child("child").child(accountNo).removeValue();
                             finish();
                         }
                     });

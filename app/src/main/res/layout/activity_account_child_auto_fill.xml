@@ -170,6 +170,8 @@
 
 
         <Button
+            android:id="@+id/confirmBtn"
+            style="@style/style_button"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -178,7 +180,6 @@
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
             android:gravity="center_vertical|center_horizontal"
-            style="@style/style_button"
             android:onClick="autoFillByType"
             android:text="Confirm" />
 

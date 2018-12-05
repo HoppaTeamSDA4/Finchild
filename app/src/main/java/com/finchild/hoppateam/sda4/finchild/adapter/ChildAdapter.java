@@ -29,7 +29,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     public static class ChildViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivChild;
-        TextView tvName, tvBalance;
+        TextView tvName, tvBalance,tvStatus;
         CardView cvChild;
 
 
@@ -42,7 +42,8 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             tvBalance = (TextView) itemView.findViewById(R.id.tvBalance);
             ivChild = (ImageView) itemView.findViewById(R.id.ivChild);
-
+            tvStatus=(TextView) itemView.findViewById(R.id.tvStatus);
+            tvStatus.setVisibility(View.INVISIBLE);
 
         }
     }
@@ -68,6 +69,9 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
         final ChildAccount childAccount = childAccList.get(position);
         childViewHolder.tvName.setText(childAccount.getName());
         childViewHolder.tvBalance.setText(Double.toString(childAccount.getBalance()));
+        if(!childAccount.isStatus()) {
+            childViewHolder.tvStatus.setVisibility(View.VISIBLE);
+        }
 
        if(position%2 == 0){
             childViewHolder.ivChild.setImageResource(R.drawable.kid1);
@@ -83,6 +87,8 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
                 intent.putExtra("childAccBalance",childAccList.get(position).getBalance());
                 intent.putExtra("childAccNo",childAccList.get(position).getAccountNo());
                 Session session = new Session(context);
+
+                session.setChildAccStatus(childAccList.get(position).isStatus());
 
                 session.setChildDailyLimitAmount(Double.toString(childAccList.get(position).getDailyLimitAmount()));
                 session.setChildDailyLimitStat(Boolean.toString(childAccList.get(position).isDailyLimit()));

@@ -14,4 +14,5 @@
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparent">#80ffffff</color>
+    <color name="colorInactiveStatus">#f72222</color>
 </resources>

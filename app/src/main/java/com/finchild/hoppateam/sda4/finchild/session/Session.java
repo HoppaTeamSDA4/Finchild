@@ -31,6 +31,15 @@ public class Session {
         return childAccNo;
     }
 
+    public boolean getChildAccStatus(){
+        boolean childAccStatus = prefs.getBoolean("childAccStatus",true);
+        return childAccStatus;
+    }
+
+    public void setChildAccStatus(boolean status){
+        prefs.edit().putBoolean("childAccStatus",status).commit();
+    }
+
     public String getChildAccBalance(){
         String childAccBalance = prefs.getString("childAccBalance","");
         return childAccBalance;

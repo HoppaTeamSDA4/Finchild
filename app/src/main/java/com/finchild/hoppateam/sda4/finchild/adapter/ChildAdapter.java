@@ -68,7 +68,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildViewHol
     public void onBindViewHolder(@NonNull ChildViewHolder childViewHolder,  final int position) {
         final ChildAccount childAccount = childAccList.get(position);
         childViewHolder.tvName.setText(childAccount.getName());
-        childViewHolder.tvBalance.setText(Double.toString(childAccount.getBalance()));
+        childViewHolder.tvBalance.setText(Double.toString(childAccount.getBalance()) + " Kr ");
         if(!childAccount.isStatus()) {
             childViewHolder.tvStatus.setVisibility(View.VISIBLE);
         }

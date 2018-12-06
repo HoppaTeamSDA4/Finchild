@@ -27,8 +27,8 @@ public class PurchaseViewHolder extends GroupViewHolder {
 
     public void bind(Expense expense){
         purchase_dateTV.setText(expense.getDate());
-        storeTV.setText(expense.getStore());
-        amountTV.setText(Double.toString(expense.getTotalAmount()));
+        storeTV.setText(expense.getStore().toUpperCase());
+        amountTV.setText(Double.toString(expense.getTotalAmount()) + " Kr ");
     }
 }
 

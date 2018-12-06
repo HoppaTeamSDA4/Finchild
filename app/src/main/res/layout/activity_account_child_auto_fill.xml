@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/topHomeFrag"
         android:layout_marginBottom="8dp"
-        android:text="Autofill"
+        android:text="Fill"
         android:textAlignment="center"
         android:textColor="@color/colorTextButton"
         android:textSize="28sp"
@@ -62,6 +62,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
@@ -89,6 +90,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
@@ -116,6 +118,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
@@ -144,6 +147,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
@@ -165,6 +169,7 @@
                 android:layout_weight="5"
                 android:hint="kr"
                 android:inputType="numberDecimal"
+                android:paddingTop="5dp"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -176,7 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="50dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
             android:gravity="center_vertical|center_horizontal"

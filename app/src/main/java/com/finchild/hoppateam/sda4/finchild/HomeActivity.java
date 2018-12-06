@@ -67,6 +67,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         backBtn.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
         btnAddChild.setOnClickListener(this);
+        backBtn.setRotationY(180);
         initialiseData();
     }
 

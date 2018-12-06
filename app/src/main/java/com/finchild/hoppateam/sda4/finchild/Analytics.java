@@ -103,16 +103,6 @@ public class Analytics extends ElementsBottomBarNav {
         }
     }
 
-    public void onClick(View view)
-    {
-        switch (view.getId()) {
-            case R.id.back:
-                // Create an Intent to start the AccountChildPurchases activity
-                Intent intent = new Intent(this, AccountChildPurchases.class);
-                // Start the activity.
-                startActivity(intent);
-        }
-    }
 
     /*@Override
     public void onConfigurationChanged(Configuration newConfig) {

@@ -28,7 +28,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Settings extends AppCompatActivity implements View.OnClickListener {
-    private final String[] profile_menu = {"Change Password", "Add Card and Account",};
+    private final String[] profile_menu = {"Change Password", "Manage parent account",};
     private TextView item_view;
     private ImageView btnBack;
     private ImageView btnSettings;
@@ -56,7 +56,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 item_view = (TextView) view.findViewById(R.id.profileItem);
                 switch (item_view.getText().toString()) {
-                    case "Add Card and Account":
+                    case "Manage parent account":
                         startActivity(new Intent(Settings.this, AddParentAccount.class));
                         break;
                     case "Change Password":

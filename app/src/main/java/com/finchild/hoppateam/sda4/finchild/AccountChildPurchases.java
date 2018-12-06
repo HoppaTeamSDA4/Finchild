@@ -66,7 +66,7 @@ public class AccountChildPurchases extends ElementsBottomBarNav implements View.
 
         //pass here name from the home activity the name and the balance of the child
         tvChildPurchase.setText(session.getChildName());
-        tvBalancePurchase.setText(session.getChildAccBalance());
+        tvBalancePurchase.setText(session.getChildAccBalance() + " Kr ");
 
 
         //Create recycler view
@@ -119,7 +119,7 @@ public class AccountChildPurchases extends ElementsBottomBarNav implements View.
                         String childName = childAccount.getName();
                         double balance = childAccount.getBalance();
                         tvChildPurchase.setText(childName);
-                        tvBalancePurchase.setText(Double.toString(balance));
+                        tvBalancePurchase.setText(Double.toString(balance) + " Kr ");
                         if (session.getChildAccBalance().equals("") || session.getChildAccBalance() == null) {
                             session.setChildAccBalance(Double.toString(balance));
                         }

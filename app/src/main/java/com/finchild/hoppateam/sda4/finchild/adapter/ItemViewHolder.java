@@ -33,7 +33,7 @@ public class ItemViewHolder extends ChildViewHolder {
 
         itemTV.setText(item.getName());
         qtyTV.setText(String.valueOf(item.getQuantity()));
-        priceTV.setText(String.valueOf(item.getPrice()));
+        priceTV.setText(String.valueOf(item.getPrice()) + " Kr ");
 
     }
 

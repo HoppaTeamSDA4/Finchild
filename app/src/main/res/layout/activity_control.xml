@@ -62,33 +62,33 @@
 
         <Button
             android:id="@+id/btnAccountControl"
+            style="@style/style_button"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="15dp"
             android:onClick="onClick"
-            android:text="Account control"
-            style="@style/style_button"
-            android:layout_marginTop="10dp"/>
+            android:text="Account control" />
 
         <Button
             android:id="@+id/btnAllowedMarkets"
+            style="@style/style_button"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="15dp"
             android:onClick="onClick"
-            android:text="Allowed markets"
-            style="@style/style_button"
-            android:layout_marginTop="10dp"/>
+            android:text="Allowed markets" />
 
         <Button
             android:id="@+id/btnNotifications"
+            style="@style/style_button"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="15dp"
             android:onClick="onClick"
-            android:text="Notifications"
-            style="@style/style_button"
-            android:layout_marginTop="10dp"/>
+            android:text="Notifications" />
 
     </LinearLayout>
 

@@ -30,7 +30,7 @@ public class ChildSpendLimit extends AppCompatActivity {
     private Spinner frequency;
     private String limitType;
     private double limitAmount;
-    private ImageView backBtn;
+    private ImageView backBtn, btnSettings;
     //private TextView limitMessage;
     //private Session session;
     private CheckBox dailycheck;
@@ -64,7 +64,8 @@ public class ChildSpendLimit extends AppCompatActivity {
             }
         });
 
-
+        btnSettings = (ImageView) findViewById(R.id.ivSettings);
+        btnSettings.setImageResource(0);
 
 
         //Create adapter to frequency spinner

@@ -27,7 +27,7 @@ public class AccountControl extends AppCompatActivity {
     private ImageView backBtn;
     private Switch switchDisable;
     private Button confirmDeleteButton;
-    private ImageView btnSettings;
+    private ImageView btnSettings, ivAccountControl;
     private Session session;
 
     @Override
@@ -45,12 +45,16 @@ public class AccountControl extends AppCompatActivity {
             }
         });
 
+
+
         // to set the back button instead of the logout
         backBtn.setImageResource(R.drawable.back_button);
         btnSettings = (ImageView) findViewById(R.id.ivSettings);
         btnSettings.setImageResource(0);
+
         switchDisable = (Switch) findViewById(R.id.switchDisableAccount);
         confirmDeleteButton = (Button) findViewById(R.id.confirmDeleteAccount);
+
         final Session session = new Session(AccountControl.this);
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final DatabaseReference accountRef = FirebaseDatabase.getInstance().getReference().child("child").child(session.getParentAcc());
@@ -64,7 +68,7 @@ public class AccountControl extends AppCompatActivity {
                             switchDisable.setChecked(Boolean.valueOf(status));
                         }
                     } else {
-                        Toast.makeText(AccountControl.this, "There is no Childto control", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AccountControl.this, "There is no Child to control", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

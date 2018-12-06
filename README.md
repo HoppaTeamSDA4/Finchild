@@ -1,7 +1,7 @@
 # Finchild
 
-Finchild is an android app firstly concepted as an extension for banking apps, providing the parents the possibility to have always under control their child purchases in details, to set expenses limits, to send money and see analytics regarding how the child use his money.
-This project covers the parent version, to simulate the purchases done by the child we have developed another app. 
+Finchild is an android app firstly concepted as an extension for banking apps, providing the parents the possibility to have always under control their child purchases in details, set expenses limits, send money and see analytics regarding how the child use his money.
+This project covers the parent version, to simulate the purchases done by the child we have developed another app (small mockup for the project). 
 
 
 ## Installation
@@ -26,5 +26,6 @@ This project is mantained by:
 * [Gloria Morales](https://github.com/gmoraleslondono)
 * [Huda Al-zurfi](https://github.com/Huda-IT)
 * [Celeste De Nadai](https://github.com/CelesteDeNadai)
+
 
 
